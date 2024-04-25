@@ -1,0 +1,1648 @@
+From: <Saved by Blink>
+Snapshot-Content-Location: file:///C:/Users/ASUS/AppData/Local/Temp/Rar$EXa22872.46745/Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35df9c84f2e.html
+Subject: Inheritance(IS-A)
+Date: Thu, 25 Apr 2024 11:59:59 +0530
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----MultipartBoundary--yN03Q1icOD4YZ7VDaDy0O6iqDvRqfIH9xe4OsvRzPd----"
+
+
+------MultipartBoundary--yN03Q1icOD4YZ7VDaDy0O6iqDvRqfIH9xe4OsvRzPd----
+Content-Type: text/html
+Content-ID: <frame-55F530988AAE8BCCBF7DC8510256E871@mhtml.blink>
+Content-Transfer-Encoding: quoted-printable
+Content-Location: file:///C:/Users/ASUS/AppData/Local/Temp/Rar$EXa22872.46745/Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35df9c84f2e.html
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; charset=
+=3DUTF-8"><link rel=3D"stylesheet" type=3D"text/css" href=3D"cid:css-381df4=
+94-e4f3-4ea0-bd6f-26256196b2f5@mhtml.blink" /><title>Inheritance(IS-A)</tit=
+le></head><body><article id=3D"a50f12d8-e60a-4bc6-bea5-b35df9c84f2e" class=
+=3D"page sans"><header><div class=3D"page-header-icon undefined"><img class=
+=3D"icon" src=3D"file:///C:/Users/ASUS/AppData/Local/Temp/Rar$EXa22872.4674=
+5/Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35df9c84f2e/sticky-notes_(1).png=
+"></div><h1 class=3D"page-title"><strong>Inheritance(IS-A)</strong></h1><p =
+class=3D"page-description"></p></header><div class=3D"page-body"><h2 id=3D"=
+3d6ad0db-8bb0-41ef-9bd6-bab8d3c953e4" class=3D"">Why multiple inheritance i=
+s not supported in java?</h2><ul id=3D"83609887-0c3f-4854-9362-0aced35df4ac=
+" class=3D"bulleted-list"><li style=3D"list-style-type:disc">To reduce the =
+complexity and simplify the language, multiple inheritances is not supporte=
+d in java.</li></ul><ul id=3D"7ce61f12-8f33-4f9d-9fa7-805efe438a59" class=
+=3D"bulleted-list"><li style=3D"list-style-type:disc">Consider a scenario w=
+here&nbsp;<strong>A</strong>,&nbsp;<strong>B</strong>, and&nbsp;<strong>C</=
+strong>&nbsp;are three classes. The&nbsp;<strong>C&nbsp;</strong>class inhe=
+rits the&nbsp;<strong>A</strong>&nbsp;and<strong>&nbsp;B</strong>&nbsp;clas=
+ses. If&nbsp;<strong>A</strong>&nbsp;and&nbsp;<strong>B</strong>&nbsp;class=
+es have the same method and you call it from child class object, there will=
+ be ambiguity to call a method of&nbsp;<strong>A</strong>&nbsp;or&nbsp;<str=
+ong>B</strong>&nbsp;class.</li></ul><ul id=3D"01e300d9-78c3-422a-a38e-aaa8a=
+f5ac1ef" class=3D"bulleted-list"><li style=3D"list-style-type:disc">Since c=
+ompile-time errors are better than runtime errors, java renders compile-tim=
+e error if you inherit 2 classes. So whether you have the same method or di=
+fferent, there will be a compile-time error now.</li></ul><link rel=3D"styl=
+esheet" href=3D"https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/=
+prism.min.css" crossorigin=3D"anonymous" referrerpolicy=3D"no-referrer"><pr=
+e id=3D"d17dff7f-1cba-48c5-815d-107803e55e36" class=3D"code language-java" =
+tabindex=3D"0"><code class=3D"language-java">class A{ =20
+    void msg(){System.out.println("Hello");} =20
+} =20
+class B{ =20
+    void msg(){System.out.println("Welcome");} =20
+} =20
+class C extends A,B{//suppose if it were =20
+  =20
+     Public Static void main(String args[]){ =20
+          C obj=3Dnew C(); =20
+          obj.msg();//Now which msg() method would be invoked? =20
+     } =20
+}
+
+ Compile Time Error</code></pre><h2 id=3D"c1b66c83-1a9a-46f1-8402-0a58b81d5=
+12e" class=3D"">Java IS-A type of Relationship</h2><ul id=3D"38202f6d-67ea-=
+430b-a698-af29e2278e33" class=3D"bulleted-list"><li style=3D"list-style-typ=
+e:disc">IS-A is a way of saying: This object is a type of that object. Let =
+us see how the extends keyword is used to achieve inheritance.</li></ul><li=
+nk rel=3D"stylesheet" href=3D"https://cdnjs.cloudflare.com/ajax/libs/prism/=
+1.29.0/themes/prism.min.css" crossorigin=3D"anonymous" referrerpolicy=3D"no=
+-referrer"><pre id=3D"b5180814-7801-4e40-b4e1-b6c04d036d0b" class=3D"code l=
+anguage-java" tabindex=3D"0"><code class=3D"language-java">public class Sol=
+arSystem {
+}
+public class Earth extends SolarSystem {
+}
+public class Mars extends SolarSystem {
+}
+public class Moon extends Earth {
+}
+</code></pre><p id=3D"24820ebb-dafb-4d3a-9e6f-e6b0d7c75970" class=3D"">Now,=
+ based on the above example, in Object-Oriented terms, the following are tr=
+ue:-</p><ul id=3D"e5b26fe6-6721-4d73-9c31-a021e0f10264" class=3D"bulleted-l=
+ist"><li style=3D"list-style-type:disc">SolarSystem is the superclass of Ea=
+rth class.</li></ul><ul id=3D"4ece4fdf-edd7-481c-8fc5-0dedd56125a0" class=
+=3D"bulleted-list"><li style=3D"list-style-type:disc">SolarSystem is the su=
+perclass of Mars class.</li></ul><ul id=3D"21814843-4259-4dc2-9213-b6864c46=
+d33d" class=3D"bulleted-list"><li style=3D"list-style-type:disc">Earth and =
+Mars are subclasses of SolarSystem class.</li></ul><ul id=3D"8aaf175e-2fb9-=
+427c-8425-e2555769b0b8" class=3D"bulleted-list"><li style=3D"list-style-typ=
+e:disc">Moon is the subclass of both Earth and SolarSystem classes.</li></u=
+l><link rel=3D"stylesheet" href=3D"https://cdnjs.cloudflare.com/ajax/libs/p=
+rism/1.29.0/themes/prism.min.css" crossorigin=3D"anonymous" referrerpolicy=
+=3D"no-referrer"><pre id=3D"9dfbddf7-fe35-4192-950b-c58cc7f83e61" class=3D"=
+code language-java" tabindex=3D"0"><code class=3D"language-java">class Sola=
+rSystem {
+}
+class Earth extends SolarSystem {
+}
+class Mars extends SolarSystem {
+}
+public class Moon extends Earth {
+	public static void main(String args[])
+	{
+		SolarSystem s =3D new SolarSystem();
+		Earth e =3D new Earth();
+		Mars m =3D new Mars();
+
+		System.out.println(s instanceof SolarSystem);
+		System.out.println(e instanceof Earth);
+		System.out.println(m instanceof SolarSystem);
+	}
+}
+
+Output:
+true
+true
+true</code></pre><h2 id=3D"49f215d7-7019-4351-b8db-4c54174d8994" class=3D""=
+>What Can Be Done in a Subclass?</h2><p id=3D"ae17a86b-0541-4a7e-b5fe-74970=
+fb77147" class=3D"">In sub-classes we can inherit members as is, replace th=
+em, hide them, or supplement them with new members:</p><ul id=3D"3b91e28c-d=
+0b5-42aa-af85-5dd83139ca6f" class=3D"bulleted-list"><li style=3D"list-style=
+-type:disc">The inherited fields can be used directly, just like any other =
+fields.</li></ul><ul id=3D"41968729-6b30-4494-8421-b62dcb8a42b3" class=3D"b=
+ulleted-list"><li style=3D"list-style-type:disc">We can declare new fields =
+in the subclass that are not in the superclass.</li></ul><ul id=3D"5b716cc4=
+-01f4-4054-bc27-70e987cad268" class=3D"bulleted-list"><li style=3D"list-sty=
+le-type:disc">The inherited methods can be used directly as they are.</li><=
+/ul><ul id=3D"03352768-65c2-474e-8b5b-a7e8c8c0d03f" class=3D"bulleted-list"=
+><li style=3D"list-style-type:disc">We can write a new&nbsp;<em>instance</e=
+m>&nbsp;method in the subclass that has the same signature as the one in th=
+e superclass, thus&nbsp;<a href=3D"https://www.geeksforgeeks.org/overriding=
+-in-java/"><strong>overriding</strong></a>&nbsp;it (as in the example above=
+,&nbsp;<em>toString()</em>&nbsp;method is overridden).</li></ul><ul id=3D"a=
+a55b277-ba33-4fc5-ac38-c8678772bb97" class=3D"bulleted-list"><li style=3D"l=
+ist-style-type:disc">We can write a new&nbsp;<em>static</em>&nbsp;method in=
+ the subclass that has the same signature as the one in the superclass, thu=
+s&nbsp;<a href=3D"https://www.geeksforgeeks.org/g-fact-63/"><strong>hiding<=
+/strong></a>&nbsp;it.</li></ul><ul id=3D"d95b6bba-75cf-497b-b800-21f4c5bad9=
+f9" class=3D"bulleted-list"><li style=3D"list-style-type:disc">We can decla=
+re new methods in the subclass that are not in the superclass.</li></ul><ul=
+ id=3D"2ea1e75f-7b66-4f6d-857e-7d3edea2bc75" class=3D"bulleted-list"><li st=
+yle=3D"list-style-type:disc">We can write a subclass constructor that invok=
+es the constructor of the superclass, either implicitly or by using the key=
+word&nbsp;<a href=3D"https://www.geeksforgeeks.org/super-keyword/"><strong>=
+super</strong></a>.</li></ul><h2 id=3D"5e683a36-1ffc-4d6c-872a-d46a239fdca3=
+" class=3D"">Advantages Of Inheritance in Java:</h2><ol type=3D"1" id=3D"73=
+2421ec-6e00-4760-8803-912d46dcbc01" class=3D"numbered-list" start=3D"1"><li=
+>Code Reusability: Inheritance allows for code reuse and reduces the amount=
+ of code that needs to be written. The subclass can reuse the properties an=
+d methods of the superclass, reducing duplication of code.</li></ol><ol typ=
+e=3D"1" id=3D"a7e5f86b-861d-4518-9ba3-8e8c9d17ee51" class=3D"numbered-list"=
+ start=3D"2"><li>Abstraction: Inheritance allows for the creation of abstra=
+ct classes that define a common interface for a group of related classes. T=
+his promotes abstraction and encapsulation, making the code easier to maint=
+ain and extend.</li></ol><ol type=3D"1" id=3D"4e064e64-39aa-47d8-b87f-67388=
+4fd3725" class=3D"numbered-list" start=3D"3"><li>Class Hierarchy: Inheritan=
+ce allows for the creation of a class hierarchy, which can be used to model=
+ real-world objects and their relationships.</li></ol><ol type=3D"1" id=3D"=
+fcbe2490-40d7-4ad3-8faf-1b9e89a281ba" class=3D"numbered-list" start=3D"4"><=
+li>Polymorphism: Inheritance allows for polymorphism, which is the ability =
+of an object to take on multiple forms. Subclasses can override the methods=
+ of the superclass, which allows them to change their behavior in different=
+ ways.</li></ol><h2 id=3D"20b488d3-170f-4eee-b0cc-284cceab7111" class=3D"">=
+Disadvantages of Inheritance in Java:</h2><ol type=3D"1" id=3D"d383636a-b32=
+5-497d-bb4d-ae3e2a4509d4" class=3D"numbered-list" start=3D"1"><li>Complexit=
+y: Inheritance can make the code more complex and harder to understand. Thi=
+s is especially true if the inheritance hierarchy is deep or if multiple in=
+heritances is used.</li></ol><ol type=3D"1" id=3D"12bfc336-d9c0-4c47-89e0-f=
+99c84a0819a" class=3D"numbered-list" start=3D"2"><li>Tight Coupling: Inheri=
+tance creates a tight coupling between the superclass and subclass, making =
+it difficult to make changes to the superclass without affecting the subcla=
+ss.</li></ol><h2 id=3D"24c4cb28-cc01-4555-8956-5cf9be6e57a5" class=3D"">Con=
+clusion</h2><p id=3D"1564a323-0cf0-4e6d-8775-d1af63f12a92" class=3D"">Let u=
+s check some important points from the article are mentioned below:</p><ul =
+id=3D"d37f1228-20e6-4e8c-98d6-cb644224425a" class=3D"bulleted-list"><li sty=
+le=3D"list-style-type:disc"><strong>Default superclass</strong>: Except&nbs=
+p;<a href=3D"https://www.geeksforgeeks.org/object-class-in-java/"><strong>O=
+bject</strong></a>&nbsp;class, which has no superclass, every class has one=
+ and only one direct superclass (single inheritance). In the absence of any=
+ other explicit superclass, every class is implicitly a subclass of the Obj=
+ect class.</li></ul><ul id=3D"ea23b6b0-613d-48c2-a3e8-5911b84b7e64" class=
+=3D"bulleted-list"><li style=3D"list-style-type:disc"><strong>Superclass ca=
+n only be one:</strong>&nbsp;A superclass can have any number of subclasses=
+. But a subclass can have only&nbsp;<strong>one</strong>&nbsp;superclass. T=
+his is because Java does not support multiple inheritances with classes. Al=
+though with interfaces, multiple inheritances are supported by Java.</li></=
+ul><ul id=3D"88ebaf58-fe6f-42ea-98a9-1bacf8292f11" class=3D"bulleted-list">=
+<li style=3D"list-style-type:disc"><strong>Inheriting Constructors:&nbsp;</=
+strong>A subclass inherits all the members (fields, methods, and nested cla=
+sses) from its superclass. Constructors are not members, so they are not in=
+herited by subclasses, but the constructor of the superclass can be invoked=
+ from the subclass.</li></ul><ul id=3D"fa1dc39c-454f-4979-8b7f-911abcd9704f=
+" class=3D"bulleted-list"><li style=3D"list-style-type:disc"><strong>Privat=
+e member inheritance:</strong>&nbsp;A subclass does not inherit the private=
+ members of its parent class. However, if the superclass has public or prot=
+ected methods(like getters and setters) for accessing its private fields, t=
+hese can also be used by the subclass.</li></ul><h2 id=3D"aaf117f3-2eeb-4ee=
+d-a4b4-08e069154759" class=3D""><strong>Inheritance and Constructors in Jav=
+a</strong></h2><ul id=3D"e3506c5f-2fef-4a52-adf6-44d49c067bc1" class=3D"bul=
+leted-list"><li style=3D"list-style-type:disc">Constructors in Java are use=
+d to initialize the values of the attributes of the object.</li></ul><ul id=
+=3D"fb586c29-fbc5-4b3e-85f6-0f91995eba8d" class=3D"bulleted-list"><li style=
+=3D"list-style-type:disc">We already have a default constructor that is cal=
+led automatically if no constructor is found in the code. But if we make an=
+y constructor say parameterized constructor in order to initialize some att=
+ributes then it must write down the default constructor because it now will=
+ be no more automatically called.   </li></ul><ul id=3D"cfb22ee2-4e98-4587-=
+a642-b7ebaab40caf" class=3D"bulleted-list"><li style=3D"list-style-type:dis=
+c"><code><em><strong>Note:</strong></em></code><em>&nbsp;In Java, construct=
+or of the base class with no argument gets automatically called in the deri=
+ved class constructor.&nbsp;</em></li></ul><ul id=3D"cd485c4f-0fbf-4b79-9e5=
+d-acdfc12422ef" class=3D"toggle"><li><details open=3D""><summary>Example 1 =
+code:</summary><link rel=3D"stylesheet" href=3D"https://cdnjs.cloudflare.co=
+m/ajax/libs/prism/1.29.0/themes/prism.min.css" crossorigin=3D"anonymous" re=
+ferrerpolicy=3D"no-referrer"><pre id=3D"a18a5de1-591b-4ddf-824c-ba975e9f381=
+9" class=3D"code language-java" tabindex=3D"0"><code class=3D"language-java=
+">// Java Program to Illustrate=20
+// Invocation of Constructor
+// Calling Without Usage of=20
+// super Keyword=20
+
+// Class 1
+// Super class
+class Base {
+
+	// Constructor of super class
+	Base()
+	{
+		// Print statement
+		System.out.println(
+			"Base Class Constructor Called ");
+	}
+}
+
+// Class 2
+// Sub class
+class Derived extends Base {
+
+	// Constructor of sub class
+	Derived()
+	{
+
+		// Print statement
+		System.out.println(
+			"Derived Class Constructor Called ");
+	}
+}
+
+// Class 3
+// Main class
+class GFG {
+
+	// Main driver method
+	public static void main(String[] args)
+	{
+
+		// Creating an object of sub class
+		// inside main() method
+		Derived d =3D new Derived();
+
+		// Note: Here first super class constructor will be
+		// called there after derived(sub class) constructor
+		// will be called
+	}
+}
+
+output:
+Base Class Constructor Called=20
+Derived Class Constructor Called </code></pre></details></li></ul><ul id=3D=
+"30059a07-bb01-49ba-843f-9b51ea071175" class=3D"toggle"><li><details open=
+=3D""><summary>Example 2 code:</summary><link rel=3D"stylesheet" href=3D"ht=
+tps://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" cro=
+ssorigin=3D"anonymous" referrerpolicy=3D"no-referrer"><pre id=3D"961413cf-1=
+8a8-4f2d-9a0e-5a8bbcbdc907" class=3D"code language-java" tabindex=3D"0"><co=
+de class=3D"language-java">// Java Program to Illustrate Invocation
+// of Constructor Calling With Usage=20
+// of super Keyword
+
+// Class 1
+// Super class
+class Base {
+	int x;
+
+	// Constructor of super class
+	Base(int _x) { x =3D _x; }
+}
+
+// Class 2
+// Sub class
+class Derived extends Base {
+
+	int y;
+
+	// Constructor of sub class
+	Derived(int _x, int _y)
+	{
+
+		// super keyword refers to super class
+		super(_x);
+		y =3D _y;
+	}
+
+	// Method of sub class
+	void Display()
+	{
+		// Print statement
+		System.out.println("x =3D " + x + ", y =3D " + y);
+	}
+}
+
+// Class 3
+// Main class
+public class GFG {
+
+	// Main driver method
+	public static void main(String[] args)
+	{
+
+		// Creating object of sub class
+		// inside main() method
+		Derived d =3D new Derived(10, 20);
+
+		// Invoking method inside main() method
+		d.Display();
+	}
+}
+
+output:
+x =3D 10, y =3D 20</code></pre></details></li></ul><h2 id=3D"9343da36-53f4-=
+4a6b-a105-2fc9dc7e9b20" class=3D"">Java and Multiple Inheritance</h2><ul id=
+=3D"56f56253-f467-42b5-9d39-4db17f9f39d6" class=3D"bulleted-list"><li style=
+=3D"list-style-type:disc">Multiple Inheritance is a feature of an object-or=
+iented concept, where a class can inherit properties of more than one paren=
+t class. The problem occurs when there exist methods with the same signatur=
+e in both the superclasses and subclass. On calling the method, the compile=
+r cannot determine which class method to be called and even on calling whic=
+h class method gets the priority.</li></ul><ul id=3D"73588df6-2a43-460d-b67=
+9-e2f64cece9ea" class=3D"bulleted-list"><li style=3D"list-style-type:disc">=
+<code><strong>Note:</strong></code>&nbsp;Java doesn=E2=80=99t support Multi=
+ple Inheritance</li></ul><ul id=3D"004db66d-ffd7-4345-8ff3-7283152b9a6b" cl=
+ass=3D"toggle"><li><details open=3D""><summary>Example 1 code:</summary><li=
+nk rel=3D"stylesheet" href=3D"https://cdnjs.cloudflare.com/ajax/libs/prism/=
+1.29.0/themes/prism.min.css" crossorigin=3D"anonymous" referrerpolicy=3D"no=
+-referrer"><pre id=3D"5d4f6589-edcf-4574-be76-f6bc0c981b79" class=3D"code l=
+anguage-java" tabindex=3D"0"><code class=3D"language-java">// Java Program =
+to Illustrate Unsupportance of
+// Multiple Inheritance
+
+// Importing input output classes
+import java.io.*;
+
+// Class 1
+// First Parent class
+class Parent1 {
+
+// Method inside first parent class
+void fun() {
+
+	// Print statement if this method is called
+	System.out.println("Parent1");
+}
+}
+
+// Class 2
+// Second Parent Class
+class Parent2 {
+
+// Method inside first parent class
+void fun() {
+
+	// Print statement if this method is called
+	System.out.println("Parent2");
+}
+}
+
+// Class 3
+// Trying to be child of both the classes
+class Test extends Parent1, Parent2 {
+
+// Main driver method=20
+public static void main(String args[]) {
+
+	// Creating object of class in main() method
+	Test t =3D new Test();
+
+	// Trying to call above functions of class where
+	// Error is thrown as this class is inheriting
+	// multiple classes
+	t.fun();
+}
+}
+
+Output: Compilation error is thrown</code></pre></details></li></ul><ul id=
+=3D"210637ed-691a-4e54-85bb-cc6d529cb4fa" class=3D"toggle"><li><details ope=
+n=3D""><summary>Example 2 code: </summary><link rel=3D"stylesheet" href=3D"=
+https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" c=
+rossorigin=3D"anonymous" referrerpolicy=3D"no-referrer"><pre id=3D"981692f5=
+-33d1-4348-8cb3-8789222a930e" class=3D"code language-plain" tabindex=3D"0">=
+<code class=3D"Text language-plain" style=3D"white-space:pre-wrap;word-brea=
+k:break-all">				 GrandParent
+           /     \
+          /       \
+      Parent1      Parent2
+          \       /
+           \     /
+             Test</code></pre><link rel=3D"stylesheet" href=3D"https://cdnj=
+s.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" crossorigin=
+=3D"anonymous" referrerpolicy=3D"no-referrer"><pre id=3D"5ef32cc3-e05c-4bdd=
+-a361-78f54a8d04eb" class=3D"code language-java" tabindex=3D"0"><code class=
+=3D"language-java">// Java Program to Illustrate Unsupportance of
+// Multiple Inheritance
+// Diamond Problem Similar Scenario
+
+// Importing input output classes
+import java.io.*;
+
+// Class 1
+// A Grand parent class in diamond
+class GrandParent {
+
+void fun() {
+
+	// Print statement to be executed when this method is called
+	System.out.println("Grandparent");
+}
+}
+
+// Class 2
+// First Parent class
+class Parent1 extends GrandParent {
+void fun() {
+
+	// Print statement to be executed when this method is called
+	System.out.println("Parent1");
+}
+}
+
+// Class 3
+// Second Parent Class
+class Parent2 extends GrandParent {
+void fun() {
+
+	// Print statement to be executed when this method is called
+	System.out.println("Parent2");
+}
+}
+
+// Class 4
+// Inheriting from multiple classes
+class Test extends Parent1, Parent2 {
+
+// Main driver method
+public static void main(String args[]) {
+
+	// Creating object of this class i main() method
+	Test t =3D new Test();
+
+	// Now calling fun() method from its parent classes
+	// which will throw compilation error
+	t.fun();
+}
+}
+</code></pre></details></li></ul><h3 id=3D"b9384e12-3570-4413-91a6-3f7bdce9=
+6d44" class=3D""><strong>How are the above problems handled for Default Met=
+hods and Interfaces?</strong></h3><ul id=3D"0fef277d-1d55-4485-9e35-184f826=
+79d25" class=3D"bulleted-list"><li style=3D"list-style-type:disc">Java 8 su=
+pports default methods where interfaces can provide a default implementatio=
+n of methods. And a class can implement two or more interfaces. In case bot=
+h the implemented interfaces contain default methods with the same method s=
+ignature, the implementing class should explicitly specify which default me=
+thod is to be used in some method excluding the main() of implementing clas=
+s using super keyword, or it should override the default method in the impl=
+ementing class, or it should specify which default method is to be used in =
+the default overridden method of the implementing class.</li></ul><ul id=3D=
+"4fde0457-e890-4c1b-9c70-fe1391652026" class=3D"toggle"><li><details open=
+=3D""><summary>Example 3 code:</summary><link rel=3D"stylesheet" href=3D"ht=
+tps://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" cro=
+ssorigin=3D"anonymous" referrerpolicy=3D"no-referrer"><pre id=3D"3ac373bd-e=
+e79-4fed-877e-e0a1acb4531a" class=3D"code language-java" tabindex=3D"0"><co=
+de class=3D"language-java">// Java program to demonstrate Multiple Inherita=
+nce
+// through default methods
+
+// Interface 1
+interface PI1 {
+
+	// Default method
+	default void show()
+	{
+
+		// Print statement if method is called
+		// from interface 1
+		System.out.println("Default PI1");
+	}
+}
+
+// Interface 2
+interface PI2 {
+
+	// Default method
+	default void show()
+	{
+
+		// Print statement if method is called
+		// from interface 2
+		System.out.println("Default PI2");
+	}
+}
+
+// Main class
+// Implementation class code
+class TestClass implements PI1, PI2 {
+
+	// Overriding default show method
+	@Override
+	public void show()
+	{
+
+		// Using super keyword to call the show
+		// method of PI1 interface
+		PI1.super.show();//Should not be used directly in the main method;
+
+		// Using super keyword to call the show
+		// method of PI2 interface
+		PI2.super.show();//Should not be used directly in the main method;
+	}
+
+	//Method for only executing the show() of PI1
+	public void showOfPI1() {
+		PI1.super.show();//Should not be used directly in the main method;
+	}
+
+	//Method for only executing the show() of PI2
+	public void showOfPI2() {
+		PI2.super.show(); //Should not be used directly in the main method;
+	}
+
+	// Mai driver method
+	public static void main(String args[])
+	{
+
+		// Creating object of this class in main() method
+		TestClass d =3D new TestClass();
+		d.show();
+		System.out.println("Now Executing showOfPI1() showOfPI2()");
+		d.showOfPI1();
+		d.showOfPI2();
+	}
+}
+
+output:
+Default PI1
+Default PI2
+Now Executing showOfPI1() showOfPI2()
+Default PI1
+Default PI2
+</code></pre></details></li></ul><ul id=3D"b01052d6-3115-4389-ab01-e38010d1=
+c600" class=3D"toggle"><li><details open=3D""><summary>Example 4 code:</sum=
+mary><link rel=3D"stylesheet" href=3D"https://cdnjs.cloudflare.com/ajax/lib=
+s/prism/1.29.0/themes/prism.min.css" crossorigin=3D"anonymous" referrerpoli=
+cy=3D"no-referrer"><pre id=3D"af70d1b1-f3e2-4192-bb70-800c7358fd16" class=
+=3D"code language-java" tabindex=3D"0"><code class=3D"language-java">// Jav=
+a program to demonstrate How Diamond Problem
+// Is Handled in case of Default Methods
+
+// Interface 1
+interface GPI {
+
+	// Default method
+	default void show()
+	{
+
+		// Print statement
+		System.out.println("Default GPI");
+	}
+}
+
+// Interface 2
+// Extending the above interface
+interface PI1 extends GPI {
+}
+
+// Interface 3
+// Extending the above interface
+interface PI2 extends GPI {
+}
+
+// Main class
+// Implementation class code
+class TestClass implements PI1, PI2 {
+
+	// Main driver method
+	public static void main(String args[])
+	{
+
+		// Creating object of this class
+		// in main() method
+		TestClass d =3D new TestClass();
+
+		// Now calling the function defined in interface 1
+		// from whom Interface 2and 3 are deriving
+		d.show();
+	}
+}
+
+Output:
+Default GPI</code></pre></details></li></ul><h2 id=3D"2a492cac-266b-4ee3-95=
+75-73c22f5384fd" class=3D""><strong>Interfaces and Inheritance in Java</str=
+ong></h2><ul id=3D"c4f6bd9e-a433-4811-b754-62a0d534f689" class=3D"bulleted-=
+list"><li style=3D"list-style-type:disc">A class can extend another class a=
+nd can implement one and more than one&nbsp;<strong>Java interface</strong>=
+. Also, this topic has a major influence on the concept of&nbsp;<strong>Jav=
+a and Multiple Inheritance</strong>.</li></ul><ul id=3D"f6901823-70a3-4d9b-=
+8c89-9315ea553d65" class=3D"bulleted-list"><li style=3D"list-style-type:dis=
+c"><code><em>Note:</em></code><em><strong>&nbsp;</strong></em><em>This Hier=
+archy will be followed in the same way, we cannot reverse the hierarchy whi=
+le inheritance in Java. This means that we cannot implement a class from th=
+e interface because&nbsp;</em><em><strong>Interface-to-Class inheritance is=
+ not allowed,</strong></em><em>&nbsp;and&nbsp;it goes against the fundament=
+al principles of class-based inheritance. This will also breach the relatio=
+nship known as the Is-A relationship, where a subclass is a more specialize=
+d version of its superclass.</em></li></ul><figure id=3D"153ece1b-c1e2-415c=
+-b5ba-5474e6383df5" class=3D"image"><a href=3D"file:///C:/Users/ASUS/AppDat=
+a/Local/Temp/Rar$EXa22872.46745/Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35=
+df9c84f2e/extends.png"><img style=3D"width:581px" src=3D"file:///C:/Users/A=
+SUS/AppData/Local/Temp/Rar$EXa22872.46745/Inheritance(IS-A)%20a50f12d8e60a4=
+bc6bea5b35df9c84f2e/extends.png"></a></figure><ul id=3D"ddd514a0-fc05-4f9e-=
+a5b8-321dac4ed52f" class=3D"toggle"><li><details open=3D""><summary>Example=
+ 1 code:</summary><link rel=3D"stylesheet" href=3D"https://cdnjs.cloudflare=
+.com/ajax/libs/prism/1.29.0/themes/prism.min.css" crossorigin=3D"anonymous"=
+ referrerpolicy=3D"no-referrer"><pre id=3D"aa565f91-a5c8-4f11-994c-838dc9a7=
+682f" class=3D"code language-java" tabindex=3D"0"><code class=3D"language-j=
+ava">// Java program to demonstrate that a class can
+// implement multiple interfaces
+import java.io.*;
+
+interface intfA {
+	void m1();
+}
+
+interface intfB {
+	void m2();
+}
+
+// class implements both interfaces
+// and provides implementation to the method.
+class sample implements intfA, intfB {
+	@Override public void m1()
+	{
+		System.out.println("Welcome: inside the method m1");
+	}
+
+	@Override public void m2()
+	{
+		System.out.println("Welcome: inside the method m2");
+	}
+}
+
+class GFG {
+	public static void main(String[] args)
+	{
+		sample ob1 =3D new sample();
+
+		// calling the method implemented
+		// within the class.
+		ob1.m1();
+		ob1.m2();
+	}
+}
+
+Output:
+Welcome: inside the method m1
+Welcome: inside the method m2</code></pre></details></li></ul><p id=3D"39d1=
+f27f-e527-406a-bc4c-947439f8474f" class=3D"">
+</p></div></article><span class=3D"sans" style=3D"font-size:14px;padding-to=
+p:2em"></span></body></html>
+------MultipartBoundary--yN03Q1icOD4YZ7VDaDy0O6iqDvRqfIH9xe4OsvRzPd----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: cid:css-381df494-e4f3-4ea0-bd6f-26256196b2f5@mhtml.blink
+
+@charset "utf-8";
+
+html { -webkit-print-color-adjust: exact; }
+
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; }
+
+html, body { margin: 0px; padding: 0px; }
+
+@media only screen {
+  body { margin: 2em auto; max-width: 900px; color: rgb(55, 53, 47); }
+}
+
+body { line-height: 1.5; white-space: pre-wrap; }
+
+a, a.visited { color: inherit; text-decoration: underline; }
+
+.pdf-relative-link-path { font-size: 80%; color: rgb(68, 68, 68); }
+
+h1, h2, h3 { letter-spacing: -0.01em; line-height: 1.2; font-weight: 600; m=
+argin-bottom: 0px; }
+
+.page-title { font-size: 2.5rem; font-weight: 700; margin-top: 0px; margin-=
+bottom: 0.75em; }
+
+h1 { font-size: 1.875rem; margin-top: 1.875rem; }
+
+h2 { font-size: 1.5rem; margin-top: 1.5rem; }
+
+h3 { font-size: 1.25rem; margin-top: 1.25rem; }
+
+.source { border: 1px solid rgb(221, 221, 221); border-radius: 3px; padding=
+: 1.5em; word-break: break-all; }
+
+.callout { border-radius: 3px; padding: 1rem; }
+
+figure { margin: 1.25em 0px; break-inside: avoid; }
+
+figcaption { opacity: 0.5; font-size: 85%; margin-top: 0.5em; }
+
+mark { background-color: transparent; }
+
+.indented { padding-left: 1.5em; }
+
+hr { background: transparent; display: block; width: 100%; height: 1px; vis=
+ibility: visible; border-top: none; border-right: none; border-left: none; =
+border-image: initial; border-bottom: 1px solid rgba(55, 53, 47, 0.09); }
+
+img { max-width: 100%; }
+
+@media only print {
+  img { max-height: 100vh; object-fit: contain; }
+}
+
+@page { margin: 1in; }
+
+.collection-content { font-size: 0.875rem; }
+
+.column-list { display: flex; justify-content: space-between; }
+
+.column { padding: 0px 1em; }
+
+.column:first-child { padding-left: 0px; }
+
+.column:last-child { padding-right: 0px; }
+
+.table_of_contents-item { display: block; font-size: 0.875rem; line-height:=
+ 1.3; padding: 0.125rem; }
+
+.table_of_contents-indent-1 { margin-left: 1.5rem; }
+
+.table_of_contents-indent-2 { margin-left: 3rem; }
+
+.table_of_contents-indent-3 { margin-left: 4.5rem; }
+
+.table_of_contents-link { text-decoration: none; opacity: 0.7; border-botto=
+m: 1px solid rgba(55, 53, 47, 0.18); }
+
+table, th, td { border: 1px solid rgba(55, 53, 47, 0.09); border-collapse: =
+collapse; }
+
+table { border-left: none; border-right: none; }
+
+th, td { font-weight: normal; padding: 0.25em 0.5em; line-height: 1.5; min-=
+height: 1.5em; text-align: left; }
+
+th { color: rgba(55, 53, 47, 0.6); }
+
+ol, ul { margin: 0px; margin-block: 0.6em; }
+
+li > ol:first-child, li > ul:first-child { margin-block-start: 0.6em; }
+
+ul > li { list-style: disc; }
+
+ul.to-do-list { padding-inline-start: 0px; }
+
+ul.to-do-list > li { list-style: none; }
+
+.to-do-children-checked { text-decoration: line-through; opacity: 0.375; }
+
+ul.toggle > li { list-style: none; }
+
+ul { padding-inline-start: 1.7em; }
+
+ul > li { padding-left: 0.1em; }
+
+ol { padding-inline-start: 1.6em; }
+
+ol > li { padding-left: 0.2em; }
+
+.mono ol { padding-inline-start: 2em; }
+
+.mono ol > li { text-indent: -0.4em; }
+
+.toggle { padding-inline-start: 0em; list-style-type: none; }
+
+.toggle > li > details { padding-left: 1.7em; }
+
+.toggle > li > details > summary { margin-left: -1.1em; }
+
+.selected-value { display: inline-block; padding: 0px 0.5em; background: rg=
+ba(206, 205, 202, 0.5); border-radius: 3px; margin-right: 0.5em; margin-top=
+: 0.3em; margin-bottom: 0.3em; white-space: nowrap; }
+
+.collection-title { display: inline-block; margin-right: 1em; }
+
+.page-description { margin-bottom: 2em; }
+
+.simple-table { margin-top: 1em; font-size: 0.875rem; empty-cells: show; }
+
+.simple-table td { height: 29px; min-width: 120px; }
+
+.simple-table th { height: 29px; min-width: 120px; }
+
+.simple-table-header-color { background: rgb(247, 246, 243); color: black; =
+}
+
+.simple-table-header { font-weight: 500; }
+
+time { opacity: 0.5; }
+
+.icon { display: inline-block; max-width: 1.2em; max-height: 1.2em; text-de=
+coration: none; vertical-align: text-bottom; margin-right: 0.5em; }
+
+img.icon { border-radius: 3px; }
+
+.user-icon { width: 1.5em; height: 1.5em; border-radius: 100%; margin-right=
+: 0.5rem; }
+
+.user-icon-inner { font-size: 0.8em; }
+
+.text-icon { border: 1px solid rgb(0, 0, 0); text-align: center; }
+
+.page-cover-image { display: block; object-fit: cover; width: 100%; max-hei=
+ght: 30vh; }
+
+.page-header-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+.page-header-icon-with-cover { margin-top: -0.72em; margin-left: 0.07em; }
+
+.page-header-icon img { border-radius: 3px; }
+
+.link-to-page { margin: 1em 0px; padding: 0px; border: none; font-weight: 5=
+00; }
+
+p > .user { opacity: 0.5; }
+
+td > .user, td > time { white-space: nowrap; }
+
+input[type=3D"checkbox"] { transform: scale(1.5); margin-right: 0.6em; vert=
+ical-align: middle; }
+
+p { margin-top: 0.5em; margin-bottom: 0.5em; }
+
+.image { border: none; margin: 1.5em 0px; padding: 0px; border-radius: 0px;=
+ text-align: center; }
+
+.code, code { background: rgba(135, 131, 120, 0.15); padding: 0.2em 0.4em; =
+border-radius: 3px; font-size: 85%; tab-size: 2; }
+
+code { color: rgb(235, 87, 87); }
+
+.code { padding: 1.5em 1em; }
+
+.code-wrap { white-space: pre-wrap; word-break: break-all; }
+
+.code > code { background: none; padding: 0px; font-size: 100%; color: inhe=
+rit; }
+
+blockquote { font-size: 1.25em; margin: 1em 0px; padding-left: 1em; border-=
+left: 3px solid rgb(55, 53, 47); }
+
+.bookmark { text-decoration: none; max-height: 8em; padding: 0px; display: =
+flex; width: 100%; align-items: stretch; }
+
+.bookmark-title { font-size: 0.85em; overflow: hidden; text-overflow: ellip=
+sis; height: 1.75em; white-space: nowrap; }
+
+.bookmark-text { display: flex; flex-direction: column; }
+
+.bookmark-info { flex: 4 1 180px; padding: 12px 14px 14px; display: flex; f=
+lex-direction: column; justify-content: space-between; }
+
+.bookmark-image { width: 33%; flex: 1 1 180px; display: block; position: re=
+lative; object-fit: cover; border-radius: 1px; }
+
+.bookmark-description { color: rgba(55, 53, 47, 0.6); font-size: 0.75em; ov=
+erflow: hidden; max-height: 4.5em; word-break: break-word; }
+
+.bookmark-href { font-size: 0.75em; margin-top: 0.25em; }
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Seg=
+oe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji"=
+, "Segoe UI Symbol"; }
+
+.code { font-family: SFMono-Regular, Menlo, Consolas, "PT Mono", "Liberatio=
+n Mono", Courier, monospace; }
+
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSyst=
+emFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Seg=
+oe UI Emoji", "Segoe UI Symbol", Twemoji, "Noto Color Emoji", "Noto Sans CJ=
+K JP"; }
+
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, =
+BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans=
+-serif, "Segoe UI Emoji", "Segoe UI Symbol", Twemoji, "Noto Color Emoji", "=
+Noto Sans CJK SC"; }
+
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, =
+BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans=
+-serif, "Segoe UI Emoji", "Segoe UI Symbol", Twemoji, "Noto Color Emoji", "=
+Noto Sans CJK TC"; }
+
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, =
+BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans=
+-serif, "Segoe UI Emoji", "Segoe UI Symbol", Twemoji, "Noto Color Emoji", "=
+Noto Sans CJK KR"; }
+
+.pdf .code { font-family: "Source Code Pro", SFMono-Regular, Menlo, Consola=
+s, "PT Mono", "Liberation Mono", Courier, monospace, Twemoji, "Noto Color E=
+moji", "Noto Sans Mono CJK JP"; }
+
+.pdf:lang(zh-CN) .code { font-family: "Source Code Pro", SFMono-Regular, Me=
+nlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, Twemoji, "=
+Noto Color Emoji", "Noto Sans Mono CJK SC"; }
+
+.pdf:lang(zh-TW) .code { font-family: "Source Code Pro", SFMono-Regular, Me=
+nlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, Twemoji, "=
+Noto Color Emoji", "Noto Sans Mono CJK TC"; }
+
+.pdf:lang(ko-KR) .code { font-family: "Source Code Pro", SFMono-Regular, Me=
+nlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, Twemoji, "=
+Noto Color Emoji", "Noto Sans Mono CJK KR"; }
+
+.pdf .serif { font-family: "PT Serif", Lyon-Text, Georgia, ui-serif, serif,=
+ Twemoji, "Noto Color Emoji", "Noto Serif CJK JP"; }
+
+.pdf:lang(zh-CN) .serif { font-family: "PT Serif", Lyon-Text, Georgia, ui-s=
+erif, serif, Twemoji, "Noto Color Emoji", "Noto Serif CJK SC"; }
+
+.pdf:lang(zh-TW) .serif { font-family: "PT Serif", Lyon-Text, Georgia, ui-s=
+erif, serif, Twemoji, "Noto Color Emoji", "Noto Serif CJK TC"; }
+
+.pdf:lang(ko-KR) .serif { font-family: "PT Serif", Lyon-Text, Georgia, ui-s=
+erif, serif, Twemoji, "Noto Color Emoji", "Noto Serif CJK KR"; }
+
+.pdf .mono { font-family: "PT Mono", iawriter-mono, Nitti, Menlo, Courier, =
+monospace, Twemoji, "Noto Color Emoji", "Noto Sans Mono CJK JP"; }
+
+.pdf:lang(zh-CN) .mono { font-family: "PT Mono", iawriter-mono, Nitti, Menl=
+o, Courier, monospace, Twemoji, "Noto Color Emoji", "Noto Sans Mono CJK SC"=
+; }
+
+.pdf:lang(zh-TW) .mono { font-family: "PT Mono", iawriter-mono, Nitti, Menl=
+o, Courier, monospace, Twemoji, "Noto Color Emoji", "Noto Sans Mono CJK TC"=
+; }
+
+.pdf:lang(ko-KR) .mono { font-family: "PT Mono", iawriter-mono, Nitti, Menl=
+o, Courier, monospace, Twemoji, "Noto Color Emoji", "Noto Sans Mono CJK KR"=
+; }
+
+.highlight-default { color: rgb(55, 53, 47); }
+
+.highlight-gray { color: rgb(120, 119, 116); fill: rgb(120, 119, 116); }
+
+.highlight-brown { color: rgb(159, 107, 83); fill: rgb(159, 107, 83); }
+
+.highlight-orange { color: rgb(217, 115, 13); fill: rgb(217, 115, 13); }
+
+.highlight-yellow { color: rgb(203, 145, 47); fill: rgb(203, 145, 47); }
+
+.highlight-teal { color: rgb(68, 131, 97); fill: rgb(68, 131, 97); }
+
+.highlight-blue { color: rgb(51, 126, 169); fill: rgb(51, 126, 169); }
+
+.highlight-purple { color: rgb(144, 101, 176); fill: rgb(144, 101, 176); }
+
+.highlight-pink { color: rgb(193, 76, 138); fill: rgb(193, 76, 138); }
+
+.highlight-red { color: rgb(212, 76, 71); fill: rgb(212, 76, 71); }
+
+.highlight-gray_background { background: rgb(241, 241, 239); }
+
+.highlight-brown_background { background: rgb(244, 238, 238); }
+
+.highlight-orange_background { background: rgb(251, 236, 221); }
+
+.highlight-yellow_background { background: rgb(251, 243, 219); }
+
+.highlight-teal_background { background: rgb(237, 243, 236); }
+
+.highlight-blue_background { background: rgb(231, 243, 248); }
+
+.highlight-purple_background { background: rgba(244, 240, 247, 0.8); }
+
+.highlight-pink_background { background: rgba(249, 238, 243, 0.8); }
+
+.highlight-red_background { background: rgb(253, 235, 236); }
+
+.block-color-default { color: inherit; fill: inherit; }
+
+.block-color-gray { color: rgb(120, 119, 116); fill: rgb(120, 119, 116); }
+
+.block-color-brown { color: rgb(159, 107, 83); fill: rgb(159, 107, 83); }
+
+.block-color-orange { color: rgb(217, 115, 13); fill: rgb(217, 115, 13); }
+
+.block-color-yellow { color: rgb(203, 145, 47); fill: rgb(203, 145, 47); }
+
+.block-color-teal { color: rgb(68, 131, 97); fill: rgb(68, 131, 97); }
+
+.block-color-blue { color: rgb(51, 126, 169); fill: rgb(51, 126, 169); }
+
+.block-color-purple { color: rgb(144, 101, 176); fill: rgb(144, 101, 176); =
+}
+
+.block-color-pink { color: rgb(193, 76, 138); fill: rgb(193, 76, 138); }
+
+.block-color-red { color: rgb(212, 76, 71); fill: rgb(212, 76, 71); }
+
+.block-color-gray_background { background: rgb(241, 241, 239); }
+
+.block-color-brown_background { background: rgb(244, 238, 238); }
+
+.block-color-orange_background { background: rgb(251, 236, 221); }
+
+.block-color-yellow_background { background: rgb(251, 243, 219); }
+
+.block-color-teal_background { background: rgb(237, 243, 236); }
+
+.block-color-blue_background { background: rgb(231, 243, 248); }
+
+.block-color-purple_background { background: rgba(244, 240, 247, 0.8); }
+
+.block-color-pink_background { background: rgba(249, 238, 243, 0.8); }
+
+.block-color-red_background { background: rgb(253, 235, 236); }
+
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, 0.07); }
+
+.select-value-color-pink { background-color: rgb(245, 224, 233); }
+
+.select-value-color-purple { background-color: rgb(232, 222, 238); }
+
+.select-value-color-green { background-color: rgb(219, 237, 219); }
+
+.select-value-color-gray { background-color: rgb(227, 226, 224); }
+
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224,=
+ 0); }
+
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255,=
+ 0.04); }
+
+.select-value-color-orange { background-color: rgb(250, 222, 201); }
+
+.select-value-color-brown { background-color: rgb(238, 224, 218); }
+
+.select-value-color-red { background-color: rgb(255, 226, 221); }
+
+.select-value-color-yellow { background-color: rgb(253, 236, 200); }
+
+.select-value-color-blue { background-color: rgb(211, 229, 239); }
+
+.select-value-color-pageGlass { }
+
+.select-value-color-washGlass { }
+
+.checkbox { display: inline-flex; vertical-align: text-bottom; width: 16px;=
+ height: 16px; background-size: 16px; margin-left: 2px; margin-right: 5px; =
+}
+
+.checkbox-on { background-image: url("data:image/svg+xml;charset=3DUTF-8,%3=
+Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%=
+22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22=
+%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%=
+22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.7143=
+6L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fi=
+ll%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E"); }
+
+.checkbox-off { background-image: url("data:image/svg+xml;charset=3DUTF-8,%=
+3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016=
+%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%2=
+2%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20hei=
+ght%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-w=
+idth%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E"); }
+------MultipartBoundary--yN03Q1icOD4YZ7VDaDy0O6iqDvRqfIH9xe4OsvRzPd----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: file:///C:/Users/ASUS/AppData/Local/Temp/Rar$EXa22872.46745/Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35df9c84f2e/sticky-notes_(1).png
+
+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
+
+------MultipartBoundary--yN03Q1icOD4YZ7VDaDy0O6iqDvRqfIH9xe4OsvRzPd----
+Content-Type: text/css
+Content-Transfer-Encoding: quoted-printable
+Content-Location: https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css
+
+@charset "utf-8";
+
+code[class*=3D"language-"], pre[class*=3D"language-"] { color: rgb(0, 0, 0)=
+; background: 0px 0px; text-shadow: rgb(255, 255, 255) 0px 1px; font-family=
+: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace; font-size: 1em=
+; text-align: left; white-space: pre; word-spacing: normal; word-break: nor=
+mal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none; }
+
+code[class*=3D"language-"] ::selection, code[class*=3D"language-"]::selecti=
+on, pre[class*=3D"language-"] ::selection, pre[class*=3D"language-"]::selec=
+tion { text-shadow: none; background: rgb(179, 212, 252); }
+
+@media print {
+  code[class*=3D"language-"], pre[class*=3D"language-"] { text-shadow: none=
+; }
+}
+
+pre[class*=3D"language-"] { padding: 1em; margin: 0.5em 0px; overflow: auto=
+; }
+
+:not(pre) > code[class*=3D"language-"], pre[class*=3D"language-"] { backgro=
+und: rgb(245, 242, 240); }
+
+:not(pre) > code[class*=3D"language-"] { padding: 0.1em; border-radius: 0.3=
+em; white-space: normal; }
+
+.token.cdata, .token.comment, .token.doctype, .token.prolog { color: rgb(11=
+2, 128, 144); }
+
+.token.punctuation { color: rgb(153, 153, 153); }
+
+.token.namespace { opacity: 0.7; }
+
+.token.boolean, .token.constant, .token.deleted, .token.number, .token.prop=
+erty, .token.symbol, .token.tag { color: rgb(153, 0, 85); }
+
+.token.attr-name, .token.builtin, .token.char, .token.inserted, .token.sele=
+ctor, .token.string { color: rgb(102, 153, 0); }
+
+.language-css .token.string, .style .token.string, .token.entity, .token.op=
+erator, .token.url { color: rgb(154, 110, 58); background: rgba(255, 255, 2=
+55, 0.5); }
+
+.token.atrule, .token.attr-value, .token.keyword { color: rgb(0, 119, 170);=
+ }
+
+.token.class-name, .token.function { color: rgb(221, 74, 104); }
+
+.token.important, .token.regex, .token.variable { color: rgb(238, 153, 0); =
+}
+
+.token.bold, .token.important { font-weight: 700; }
+
+.token.italic { font-style: italic; }
+
+.token.entity { cursor: help; }
+------MultipartBoundary--yN03Q1icOD4YZ7VDaDy0O6iqDvRqfIH9xe4OsvRzPd----
+Content-Type: image/png
+Content-Transfer-Encoding: base64
+Content-Location: file:///C:/Users/ASUS/AppData/Local/Temp/Rar$EXa22872.46745/Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35df9c84f2e/extends.png
+
+iVBORw0KGgoAAAANSUhEUgAAAkUAAAFpCAYAAACS+FwRAAAAAXNSR0IArs4c6QAAAARnQU1BAACx
+jwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAADlfSURBVHhe7d1rbCRZffdx785y2exu2JBZdjeX
+bRLYECnaOIDCkguZKFIwKPvESERYURLNvghYQMC8IBh4AUSEOFkeySRB8jMviCOQ1URsZOEwOFoN
+aTTRqAcJqdGIiR1GSmcnGXpYh3Ri1muDYf7P+VedU32quvpiu+0+Xf39oD87rqqu7rbr8qtTp6om
+BAAAAEIoAgAAMAhFAAAABqEIAADAIBQBAAAYhCIAAACDUAQAAGAQigAAAAxCEQAAgEEoAgAAMAhF
+AAAABqEIAADAIBQBAAAYhCIAAACDUAQAAGAQigAAAAxCEQAAgEEoAgAAMAhFAAAABqEIAADAIBQB
+AAAYhCIAAADjxEPR2toaNeB6+umn7W8XTt7viRp+PfXUU/YvhE7yfm/UcIpt6/g58VA0MTFBDbjO
+nTtnf7tQt27dyv09UcOvlzzwEvtXQh6W3bCKbev4GU4oerOpJ6iBFCtum2THwnIWVv3mhJy+/7T9
+KyEPy25AxbZ1LA0nFP2+qXPUQIoVt02yY2E5C6seIxT1wrIbULFtHUuEolEvVtw27FgCLUJRTyy7
+ARXb1rFEKBr1YsVtw44l0CIU9cSyG1CxbR1LhKJRL1bcNuxYAi1CUU8suwEV29axRCga9WLFbcOO
+JdAiFPXEshtQsW0dS4SiUS9W3DbsWAItQlFPLLsBFdvWsUQoGvVixW3DjiXQIhT1xLIbULFtHUuE
+olEvVtw27FgCLUJRTyy7ARXb1rE0wqGoJDO1ValuN2XXzjuy35T6zbLMPpnzmksVaeo0exWZy44b
+1WLFbXOQHcvcjWiJEGku544/UD05L+vbVVnOGzfIWpmVctNf7huyXsmZLrQiFPXUa9lddovrjbnc
+8f2X2X5ercnG9aPOp3eVLpZlY8/bSu+sy9mc6YIrtq1jaTRDUbTzaa1ku3t12WhumGrEoSfSkOqV
+qfTrCEVjYTihaFYqezqjjWMPRfM33bJvDgCi5X5V5nOmC64IRT2dWCja3BjMfHrWvFT3o7cy2127
+na7P50wXYLFtHUujF4pW5uzOx4Sh7dWcFqFJmb/esEfRTalc8sYRisbCcEKRWy6POxSdkdVtfZ9d
+qdbyxgdchKKeCheK1lalrm+0X5WFvPEhF9vWsTRyoSg5SjaBaCpnfFwlWdxy05XljBtOKBoLxQ5F
+7n0ygX8UilDUU+FC0Shvc9m2jqXRCkUry2aXo8xR8uWc8X5V1kXbi5omPCWnFrqsoJMXy1Lbae+f
+tHF9UWZW0tNG5+OvrKfPk+t77dRk9XLmlJ2p0oVFWU/1AdFTfg2p1ee7BLs+ixW3zSBCUbzzMQFn
+ZUYWb9Sl6U4B6N+5uS6L57352B1MWjoclS4syOqWf3pXl82KLF4oteZjK/5MJvRcWZRKcpq4Kd/e
+3bH/TtvYbL32YMux1qTMXqtJw1+WdfprszLZNq3Of1kqqWVZfx8d+vBli1DU0+FCkd0ummVYtzUV
+v5+l/du3tjOtlnZfen5mmdispLdvHZcJ995mGbi2kSzf2qXhP75nf0jx14vWdtRfXqNtY4flb0LX
+x+vmfZL1MX6vypUZKeVMu1DXZdtOaHScNq/Yto6l0QpFbudz2KbYDqFoyszXrZTNbe2jYcrbsOya
+jU3S2pSaflcaUZ+ODaknG5BdqV3xdnTnzUbDrsC7Oznz3lrsbwXtVKy4bQYXihpSt6EkXi5MOIp+
+MvZrsuhCxuVVb5xbJlphvHTJBHS3Ed9vxMvAjlsCtMUnHYzcZ9qNXhP3G6rvNeXqM9XUZ3DL6qo9
+QDjocjxxbsp8z2SsfY079RxP74f2qau11ve3/UPqboezb3Z2flDMK0JRT0cKRTt1qXvLjP7tndZ2
+ZkaWb5pxbvmzf8fq5oyd15QsbbVel13us8tE8t77cbCJt3Em/Dcvybq+T/IZsv3fSq11z7zSbUc3
+TKB32lqxvK4TOr/oNd531OmTbamZdj1Zx9z8W8t2atpOxbZ1LI1UKOq0A+u78kLRypLU4pm27Zwm
+zpfj8+Hm/1fX3PAF23HQDMvsBKbqOrXZONxcSoYt2NN99XqmBel8fK591wS8JX/4QYsVt83gQpFh
+dvZlvzXH2zBvbPrLS6fTZ63pmzf9I3YvxPgBy1RrZ1GXclvQcPPLnD478HI8IWeuxUNlr5pu+UqC
+vAZ8O2zN7vzMsHp91tuheDu3XlcVEYp6OlIoMnab5VSLYMlt83S59FsK7QFmNnicscNl3ywrF/OX
++8b1s95rWu+dGzQ6tc5HLflGTphOPnPm4Nd1nYj6kuZ+x4asXoiHJctk12U7s55ki23rWCIUXa3G
+R+Rmnu1HDnk7ILcRqMmSv5HpUG4jVrvaYwU8bLHithlkKMruNLTca9Lj8kNR6WocVXQD336FWMkc
+lcej69fOJMOTz2SO7tPTa3UIRQdejmfMkbQOy985nNGAb47+GzfiK4XOXo92Yek+ekmdTebV9bQ2
+oaino4WizDIRVYflJTcUub9jenlMKgky/rLs3rsh6zaQpKpDKDprli9dXvPWr9Y8/XVp0YZ+E3za
+DhTswadZXjc2H/UOEPKXx2SdzF2WvWLbOpYIRV6V1qZl5uKCLF9blcrWhtfPIr0zWXVdO/RUyI1V
+Wbo8lX/+29RM3e5MzAraaFZk9eq8TPXT/6LfYsVtM8hQ5PfXSSp3h5IfilxLYf7G3yxzrrXGe3/3
+mRrX3SkNvzrs5LzqbznO2/F0KnfFm+4s88N9KyjO5o6PilDU09FCUf7fMn5NH6HIXSmmLZS5B3ze
+snfRDXPvXZPFtulN9djmak2en5GZy0tSvrYuVT1VF7XkKO/7ePOZ9V6bWzVzgGCnzX3PFddy2mPZ
+Z9s6lkYqFM26HZhJ+D3PB+dVhxU0vrlYNOe0fdcfI7NB8foJtWifjKqs1rKd+Px+Gy3a4a9aX+jQ
++fUAxYrbZnChqEPwOEAocjuxpD9ZtlyfCG+ZdJ8pN5B1CUUHWo772Fm1yr2nmYPrq5Qt13+j2wEL
+oainI4WiDn/LvkORWybM/8f9f9rL9Y1rLZvd37vbcjZ1pWL7QKXtJh2vvXXJft6+DojdtK7/Xlu5
+PlId1m9XbFvH0mh1tL7SOhXRu6O12ZCbDXXT7IxcR9TcFdQ1CRsaatavLcn8hRnbmtN5B6RXaExd
+XjZH4v6RTUw3NNnQNnl+XpZv1KTVIdvSz3KUYMSK2ybEUNSTt0weKhQddDk+ZCjqiVB0JGGEot6O
+GopKZlsebwltC/rmgsxemJYz0bbQzvOooainDuu3K7atY2m0QlGPc8WpumybULUp2HUuzVlB3emN
+/KvAuoWidJXW5mT5pru6wXvPvFo5I3Ob1eSoK/f8fb/FitsmpFCUdLTvcNoprw4Tig68HPd7CiEq
+d/qs93rQtQhFPQ01FLnTZ50CTm4dJhS1Tsc2shegRJUTirz59H367LBnFFyxbR1LoxWKTCU7sa5X
+ukxJ2a50qZ1EzgrqNjK5O6Dk6NvboJgVrrlvVrnt1ZxOetmdz4JUo6bg9FU/rtx3SW/gDlisuG1C
+CkUld9S6tdT3BvowoejAy7HXOTr3Kpxox2L+Z34vj5qf3WdKX3l0wCIU9TTUUJQsWwd5lt5hQlH+
+Muwq6Qjtr0vJAXF+R+vowgCzvEYXBiT3s+vvYpiOxbZ1LI1cKJrwH/NhgtHCWmaDvjLTus9G9nLP
+Li1FelSRuv/Gk/PJ+6RWXu/S5+rlydb0plqXhrpOh62ri5o359Odsb3vkVz2fJhixW0z3FCUuQpn
+xd3CYVc2rmX6m5lltWz7mzVvLiTDDxOKDrwcm4pvIWGY9WHe7/y/Mtt+FZK9hUQ0j8xy33oP/Y7T
+6XF+EYp6OulQlL3CseMyYWryst2+6W0q/tENP0woarUU6ffw14nShbLXX9M/wCi1WkMztx2YOG+2
+yXYdi88gdJnWjJu5Zm+FsdejGwbb1rE0eqFIS1eCZENvFnx7AzL/RnXayW49e7+WvBU0CTKG65jn
+Or/u16Vmd1r+Dsq/SZ5/Q0Y7xEzrNQn7nbKTjn/dboZ2wGLFbTOcUFRKdljxMmECu90Ya1h2/X1k
+zy0D3t2tM+H9MKHoMMtx9uaN8Q3uOi+bqeU+b53bMetVtyNzQlFPJxaKkuUl7lRd3XQtgHk39PRv
+TmtifyrIHCYUxfdDSuboliXXWX+nJrUolGc+s3cg6T53xxsy6rTuKmEzrbs5ZOvu1pntdF4NaNta
+tWcJpi8mW4FI46I9gFir2iHWVlmmo89gDqjsoJgLcdNStgfbsU7DT+K9w/x+RzGaoUhL++Vcq0Yr
+a2t1NfR29DeW8x870GEFnYyu2vHm4s0jbpY1q5B3JB8dbfCYj2ANJxSZv3Pq6q/0a/OWgU7L6qFC
+kamDL8da7jEf0eiYvq7DsqnvkX2MSLws93ElJaGopxMLRSb86ONrkr9jqv9NzqNf3Pat7eraw4Wi
+eBtaMdtvHWl5y5Fr6anXM/0tOzzmo3rVv6Fo52mj79GsyPLFTGtnXhGKPISiYzOwUETFRShqc5BQ
+RJ1gEYp6YtkNqNi2jiVC0agXK24bdiyBFqGoJ5bdgIpt61giFI16seK2YccSaBGKemLZDajYto4l
+QtGoFytuG3YsgRahqCeW3YCKbetYIhSNerHitmHHEmgRinpi2Q2o2LaOJULRqBcrbht2LIEWoagn
+lt2Aim3rWCIUjXqx4rZhxxJoEYp6YtkNqNi2jiVC0agXK24bdiyBFqGoJ5bdgIpt61gaTij6dVPv
+pAZSrLhtkh0Ly1lY9YuEol5YdgMqtq1jaTihaEzrF0xNm3qpN2wQxYqbluxYClK63OQNH8W6/4H7
+7V8JeYq27I56sW0dPyceir75zW+ObTU2NuTWPfdoMpRbd90l3/3lX5Zn3/pWaX7iE/LMU0/lvqaf
+eu655+xvF07e72kUq7m4KM+95S2540axvvWtb9m/EDrJ+71Rwym2rePnxEPR2Pvwh6NQlNTzn5/+
+eXnZToixp8uCLhO/8it2AADgOJktLk5Usyly112tEHTqVPzfs2f16Yd2Iow9F4hcYbzptuHLXxb5
+278VqdXsQACDxtZ2GLS16I474p3dbbeJ/NIviTQG95RfjLhsINLSMI3i07/9Rz4i8qY3ifz6r4s8
+8EB6OSiVWBaAY2TWMpw4v7Xo7W8XefjheOOnR4IYb3mBSKtSsROg0LRFaHo6fxnQ0uUDwLExaxmG
+wvUtWl0V2d4W+Z3fiU+lfexjegmKnQhjxQ9Ep0/H/7399vi/7AzHy5e+lG4l0uWAvmXAsTNrG4ZC
+W4te9KJ0P6K/+qu44/Ub3yjy7W/bgRgLujxoa5DrLzI/H7cm/tzPxTtFDdEYD5ubIq99bfx3d6fZ
+tWgtBI4doWiY5ubsPzxf+YrIQw/Fpf/G+NGWwpe/PO58r373d0XOnIn/jeL6wQ9EnnhC5IUvFHnw
+QZEvfjFuHdJA5JYFAMeKUBQibSXS1iJtNdLWI4yXajXeEa6v2wHG4qL9BwpJW4de85pWAHKdqbV/
+kbYYcmUqcCIIRaHS1oI/+7O4n5H2N9J+RxgPeurs7rtFvvtdOwCFldc65NPTppw6BU4MoSh0ekWa
+drjUK9SuXLEDUWiveIXIzIz9AYXVqXXIRwd74EQRikaB3sNI+5TceScbyaLTjta6k9SrElFMvVqH
+AAwNoWhUfP/7Ih/8YHyzx8cfF+GZPMXEqbNi+9rXercOARgaQtGo0aPKF79Y5JFHRL7xDTsQhcGp
+s2L63vfivkHPex6tQ0DACEWj6Omn46NNfeL+5z5nB2LkbWzELQjlsh2AQtDWoZ//eVqHgBFAKBpV
+enrlXe+KN7T6X063jD5tSdBTZ1xpWAx+65A+s4zWISB4hKJRpy1F2mKkLUfagoTRxamz4nCtQ9oH
+8B3vEHn2WTsCQMgIRUWgfYv0kn3ta8TR6Gji1FkxZFuHeDQHMFIIRUXhHiqrR6Yf+EB8tRpGx8JC
+vCPl1NnoonUIGHmEoqJxD5XV+xrp/Y0wGiYn40c6YPTQOgQUBqGoiNxDZfVO2HpHbISNU2eji9Yh
+oFAIRUXlHiqrz0772MfiZ6khTJw6Gz20DgGFRCgqMv+hshqQNCghPI8+KjI1ZX9A8GgdAgqLUDQO
+3ENl9ZSanlpDOPTKQT11xjPtwkfrEFB4hKJx4R4qq52wtTM2wsCps9FA6xAwFghF48R/qKxevs/p
+tOHLnDqrrk3IxFrV/jRAW2WZPjct5S37czAaUl6ZkIVN+2No/Nahn/kZWoeAgiMUjSP3UFlOpw2X
+tt7pqbOlJTvgGBGKDs61Dt1+u8h73yuyu2tHACgqQtG4cg+V5XTa8Cwuxi0Q3v2k/JYi/ff0xWoU
+GibOacWhJpom+lnHu9dWZUHHb2r4seNXyiZyWG2hKA4jbj7t0y5IdXOhNV4/UzTcvcaMt5OrxsXp
+1rSZ8BV/j7L5fG68C0Hpz+C+i//9su9zIjT8+K1Dly/bEQCKjlA0zvyHyurpNPq1nKycq86yocgP
+GC4sJEEoCi0uNGgoSoeIaHoXdlKhKA4jrUCVft8k/GR/Tuadfn0UiPxQlfpc7d8jDlDpebmWouy8
+2uZ93DQAaRCidQgYS4QitB4qq89P06uhcPw6nDrzw0kqqKhM2DBTxK1DUdiIQ1HqNJQfhPx/63za
+goY3r1SAUu0hKgor0WfzP0OLfvZUy4//PVLz7x6KToyGnz/+4zgM0ToEjC1CEWKbZq/0yCMid98t
+8ulP24E4NhqGNBRlHsXSMxSlAkM2FGXDiReUvCASt9SYebeVfX2HUOQHriQURdPmzetwoch95nge
+2e9zTGgdAmARitDy3HMijz8e76z1v/ozjofeHkEr48RCUbfWmAOHou7h5WChyImHx+HIbx0bIFqH
+AGQQioaq0w5hULyd4kHojQTvvDNuOeJ02uB1uersaKEo87f2w4f/77bTcBkHCUV9LGOHC0XOIZfh
+XmgdApCDUDRUgYYideVK3MdI+xppnyMMTodTZ+qoocgfn3p9ThBpm7cLSgcKRfbfbX2dWtMfJBS1
+tWL1CnAHResQgC4IRQMS7xjMxj+q1g4lHt6+g5lY+0L8X/uaVidWO97Ny99BRDuTBSn775XaSWY+
+x9pCOhRFr7fjTPkdZ3Pp1Wh6VZruwPUqNb1aDUenV5zplWc5jhqKFszfPPn7ty07/nJoQ1RSXvA4
+YChS0Wf15udP2z0UectsNE1m+U99jiOidQhAD4SiAYg26l2Obv2dQnra7M4m/tkPK6kdigs1yQ4m
+3rG56eOdS+Z9zfh4/umj9/afu/jUp+LTaXpfI72/EQ5PW4f0/jd6j6KBOsDfc9z4rUN6M0ZahwB0
+QCg6Mt0ZtR/NaiBJwo0NMwsXexyBt7UEKG/+bUfw8fv4R9jp1h9/R3nEnaY7naZ3wtY7YuNwupw6
+OxpCUS7XOqRBVG/IqI/tAIAOCEVH5VpvcsoPKO4UQTq0pENRchqhrfoJRXk7xS7zT1qbDsCdTtNn
+p33gA/Gz1HAwXU6dHQ2hKCXbOqSP7ACAHghFR5UTVPIkgSQVRnJCS1tLkeeIoSgRnd6Lw1E6pPXp
+E5+IHw+il5QPvMWjwDRUaouFPhkfx4fWIQCHRCg6sj6O0F2Ysc+lak2bCS29rrTpGorieXU+fdau
+ZwjrRh8kqw+UfeABTqf1S291oKfOuM3B8aB1CMAREYoGIG4F8sOMH0bSYSU9bbYlJ/451ZrkB6Wu
+ocjI6+CdfI5sQMoLUQf07W+LvPGNnE7r17GdOgOtQwAGgVA0IC6AuHLhIx7uB6Z08Gk/rRaHl9a8
+vNf2CkVGMj9T7snkSRDyTptF5Yevw7p1i9Np/eDU2fGgdQjAABGKMBj+6bQvf9kORKJcjk+dbWzY
+ATiySoXWIQADRSjC4LjTaadOiXzsY3ErEmLT0yKTk/YHHMmzz4q84x3xaVtahwAMEKEIg6VB6E//
+NA5GGpA0KI07Tp0NjrYOlUq0DgE4FoQiHA89haan0vSUmp5aG2ecOjs6WocAnABCEY6PdrrW1iLt
+hP2Xf2kHjqGZGZFXvML+gANzrUMvfKHIE0/QOgTg2BCKcLz802l6N+xxO52mp87uvjs+1YOD8VuH
+9Ll7m8n9JADgWBCKcDLG9XQap84OJ9s69IMf2BEAcHwIRTg5ejpN72U0TqfTOHV2MLQOARgiQhFO
+lt71+v3vj3d6ejpNTy8V1Xe/G586m5+3A9AVrUMAhoxQhOHQ56Xp6bSHHxa5csUOLJjV1fjUWa1m
+ByAXrUMAAkEowvC402l33hk/LLVoOHXWG61DAAJCKMJw+afTHn9c5Lnn7IgRx6mz7mgdAhAgQhHC
+oKfTXvxikUceEfnGN+zAEba+Hp86qw7gobtFQ+sQgEARihCOp5+OWw3uuWf0T6edPSvy8pfz/Dcf
+rUMAAkcoQlj0tNOon07j1Fk7bQnU1qG77hL55CdpHQIQJEIRwjTKp9M4ddbSbMatZvr70E719bod
+AQDhIRQhXP7ptM99zg4cAbOzIvffz6kzDbYPPthqHeJUIoDAEYoQvve8J25pGIXTUXrqTAPR3Jwd
+MIZoHQIwoghFGA3aUqSnpUI37qfOTqB1qLo2IRNrx/D73SrL9LlpKW/Zn4PRkPLKhCzQLx04doQi
+BOVf//VfZW1tbWTr39/wBtm9915Z+/znc8cPo5566in72z1GRWgdIhQBY49QhKB86EMfMvvViZGt
+hqn/lxk27HrJAy+xv91jcsJ9h/yWIv339MVqFBomzmnFoSaaJvpZxzeiac1QWdDxmxp+7PiVsokc
+VlsoisOIm0/7tAtS3VxojdfPFA13rzHj7eSqcXG6NW0mfMXfo2w+nxvvQlD6M7jv4n+/7PsAODxC
+EYKioeiOe++QiSfMxn7E6s6PTciHXj8hj/5R/vih1G9OyOn7T9vf7oANqXUoG4r8gOHCQhKEotDi
+QoOGIh3fChHR9C7spEJRHEZagSr9vkn4yf6czDv9+igQ+aEq9bnav0ccoNLzci1F2Xm1zRvAoRGK
+EJQoFP2ICUXRDoY6cj12TKFoiFeW+eEkFVRUJmyYKeLWoShsxKEodRrKD0L+v3U+bUHDm1cqQKn2
+EBWFleiz+Z+hRT97quXH/x6p+XcPRQAGh1CEoBCKBlyDDkUB9B3qGYpSgSEbirLhxAtKXhCJW2q8
+32NS9vUdQpEfuJJQFE2bN6/DhSL3meN5ZL8PgKMgFCEohKIB1yBDkWsduvfe+DEsQ7rv0ImFom6t
+MQcORd3Dy8FCkRMPj//WfusYgMMiFCEohKIB1yBCkbYO6SNXtHXoDW8QuXHDjhiOo4WiTLjww4f/
+77bTcBkHCUV575txuFDk9J4/gP4QihAUQtGA66ihyG8d+pu/sQOH66ihyB+fen1OEGmbtwtKBwpF
+9t9tfZ1a0x8kFLW1YvUKcAD6RihCUAhFA67DhqLAWod8Rw1FC2saIuzvx5+2LejYEJWUFzwOGIpU
+9Fm9+fnTdg9FLlS5aWxgS+blfw4AR0EoQlAIRQOuw4Qi1zp0330in/2sHVgE6dYZAMgiFCEohKIB
+10FCkd869OY3izzzjB1RFIQiAN0RihCUwYWikszUVqW63ZRdO+/IflPqN8sy+2TOay5VxMQCkb2K
+zGXHjWr1G4pc69BpM60+Z66QCEUAuiMUISgDCUVPzsv6disK7e7VZaO5YaoRh55IQ6pXptKvG8dQ
+VPjWIQDoH6EIQTlyKFqZk8pePK/d7dWcFqFJmb/esK1HTalc8saNWyhyrUNahW0dAoD+EYoQlKOG
+ovmbtoXIBKKpnPFxlWRxy01XljNu+LiEomefbbUO6d2ptbUIAEAoQliOFIpWlmUjmsuuVC/njPer
+si7aXtQ04WneDesSiiYvlqW2094/aeP6osykLo/WKsnMlXXZ2POnNu+1U5PVy5lTdqZKFxZl3QST
+1NR7DanV57sEuz4rG4oqFZFSKW4d0pYiAECCUISgHCkUbcaRSPaz95fpszqEoikzXxdYmtvaN8mU
+14F7t7ncam1KTb8rjagv04bUk4C0K7UrpWTaifMmyO3bMTs5895alJI37wOXC0XaOvSOd4jcdhut
+QwDQAaEIQTlKKJq7YXf0JqTkje9ZeaFoZUlq8UylcskLM1rnyxI/DrUuq8mN+RakGoUcM+y8N62p
+qejhqbuye3MpGbZgT/fV65kWpPOr0bx3TcBb8ocftEwo+u0feVHcOqRF6xAAdEQoQlCCC0VXqyaY
+xPNsb7Fxnbr9DtvuFF5NltpOq7XXsv3ItauZwDWoMqHoL+7+IZG3vz1uLQIAdEQoQlCCC0Veldam
+ZebigixfW5XK1oY0klNifiiakdUdO3i/IRs3VmXp8pRMZublaqbuHjKhp9oqsnp1Xqby7qF02Mrr
+aA0AyEUoQlCOEopmXSjaLh+uH06HUFS6WJYNe5l/yr7r+5O5tN/rJ9SinbqrslqbyXy2KVluunDV
+ovdWqtYXcjpxH7AIRQDQN0IRgnKkjtZX4t4//XW0npPKjl4RtiGr7kq1vFAUXaUW01Czfm1J5i/M
+2NacvNNnriZl6vKyVLbq0swEpOaNubbQNnl+XpZv1LwO2ZZ+lqMEI0IRAPSNUISgHCkUJZ2i+7gk
+/3LVtvLUpew6SeeEItcROv8qsG6hKF2ltTlZvuluGum9Z16tnJG5zao0bJiqXzuTP10/RSgCgL4R
+ihCUI4UiU0m/op11OZszPq4pKW/Hk6XCTk4och2hNzbda71KWpG8UFSrSnPfRJ/t1dRl+nFlQ9SC
+VPd2TVDyr15rlfsu2rKUHdd3EYoAoG+EIgTlqKFown/MhwlGC2uZq7pWZmRpyyad/Q1Z9i+b79JS
+pP2UUjdSfHI+eZ9UKPIu4a9enmxNb6rk5m+mWIyGlcxniQZI8+Z8ujO29z1qV7zhBy1CEQD0jVCE
+oBw5FGmdN8EkCSxxp+XsTRH1yrD17H2H8voUJUHG0KvJ7Hzin+tSs52k/ZYk/2aP/g0Z7RAzrXdP
+Ir9Ttpt/s568p94Y8kh3tSYUAUDfCEUIykBCkZb2y7lWjTouJ0FI6aM5biznPCjWVF4oMjUZXX3m
+zcWbx5nohowmvNxc8OYV8GM+AAAdEYoQlIGFIiouQhEA9I1QhKAQigZchCIA6BuhCEEhFA24CEUA
+0DdCEYJCKBpwEYoAoG+EIgSFUDTgIhQBQN8IRQgKoWjARSgCgL4RihAUQtGAi1AEAH0jFCEohKIB
+F6EIAPpGKEJQNBSduvuUTLzT7NCpo9cvEooAoF+EIgRFQ9HEhNmZUwOr+x+43/52AQDdEIoQlO98
+5zvyzW9+kxpgfetb37K/XQBAN4QiAAAAg1AEAABgEIoAAAAMQhEAAIBBKAIAADAIRQAAAAahCAAA
+wCAUAQAAGIQiAAAAg1AEAABgEIoAAAAMQhEAAIBBKAIAADAIRQAAAAahCAAAwCAUAQAAGIQiAAAA
+g1AEAABgEIoAAAAMQhEAAIBBKAIAADAIRQAAAAahCAAAwCAUAQAAGIQiAAAAg1AEAABgEIoAAAAM
+QhEAAIBBKAIAADAIRQAAAAahCAAAwCAUAQAAGIQiAAAAg1AEAABgEIoAAAAMQhEAAIBBKAIAADAI
+RQAAAAahCAAAwCAUAQAAGIQiAAAAg1AEAABgEIoAAAAMQhEAAIBBKAIAADAIRQAAAAahCAAAwCAU
+AQAAGIQiAAAAg1AEAABgBBWKXvmqV8ojv/AIFVi9/vWvt38hjDrWsTCLdQwIQ1ChaGJiQiYeNvU6
+KpgqTcjp+0/bvxBG2a1bt1jHQizWMSAY4YWi3zd1jgqm/g8b7KJIQhHrWFj1GOsYEApCEdW9CEWF
+QSgKtAhFQDAIRVT3IhQVBqEo0CIUAcEgFFHdi1BUGISiQItQBASDUER1L0JRYRCKAi1CERAMQhHV
+vQhFhUEoCrQIRUAwCEVU9yIUFQahKNAiFAHBIBRR3YtQVBiEokCLUAQEYyRD0dyNZvyC5nLu+APV
+k/Oyvl2V5bxxg6yVWSk3m7Ibf3KjIeuVnOlCK0JRYRwkFLGOnWARioBgjHkompXKns5o49g32PM3
+3aa6KfXmhmw0V2U+Z7rgilBUGMMJRaxjPYtQBARjzEPR3AltsM/I6ra+z65Ua3njAy5CUWEMJxSx
+jvUsQhEQDELRiWyw3fs0pXIpb3zARSgqjGKHohFexwhFQDAKFYqWo8Fm47syI4s36tLcj6YydqXZ
+XJfF8958NjfsOF96w126sCCrWw2zmXXMfLYrsnih1JqPrfgzmQ3ylUWpbLea8b+9u2P/nbax2Xrt
+5MWy1Hb8vhDGflM2ri/KzEr6feKalNlrNWnsea/Q6a/NymTbtDr/Zamk+lro76Mss0+2T9tWhKLC
+GEQoYh07hnWMUAQEo4ChqCF1u8Fsbmu/ArPhjn4y9muy6DaAl1e9cbvSyPRBKF1al4bb4O83zDgz
+fqe1Ia5cSm+03WfajV4T92mo7zXl6jPV1GeIP9OGrF6OXzdldhzJXO24je3WxnXXfMcz3vtMnJsy
+3zMZa1/TSE0/5U0/dbXW+v579Wj+9eiI2tg3Oyh/J5ZXhKLCGFwoYh0b6DpGKAKCUcBQZJgNUdk/
+0lxxTet69OhvaDs17bemb95cTG8A3QbW3/ibSj6T1KXcthHs0LS/siS16DXtO4CJ82UzJ1WX1bXW
+8DPX4qGyV00flZ9flo1oZ7ErtSt22JoZFk28K/X6rJTctOdKrc+7sy5nk+E5RSgqjMGFIoN1LB42
+iHWMUAQEo5ChqHljLjVcy70mPS5/g10yR36R/WrO1SslWdqKR9evnUmGJ59pa9Gb1lWHDfbVanzU
+a75Ha2PqKu81M7IenSnQjXJmA2/qTN1szPfNEfmN+ejns9cbOrHIdjlzJKx1NplX1R5R5xahqDAG
+GYpYxwa4jhGKgGAUMhT5fQmSsv0b+tlgL9hLe/M2/FoldyTpvb/7TI3rM6lp4+qwwfaqtDYtMxcX
+ZPnaqlS2Nry+DP5r3FFp9qg7r9zVOLpjad+4a7V2YrO546MiFBXGIEMR65jWgNYxQhEQjAKGog4b
+xQNssN2Gf3fH9j/I1radYK8ic/Y17jPl7iy6bLBLF8uyEY3L2Hd9HrzXXKqYnwzvfTuXe08zB9eP
+Iluu/0bm95gqQlFhDC4UsY7FNaB1jFAEBINQ1GWD3dNRN9iVdbGN72ajWpX1a0syf2FGpqIrVnJe
+c8gNdk+EorEQYijqaRzWMUIREAxCUc4G2zXtd2oSz6vDbLDd++xuLfbX32HFdQxNf978ck37HX4f
+/RahqDBCCkWsY14RioBgEIpyNtglO61sLeVsSPPrMBtsd7Sc+5rkCNd/TavjZl4n0Ila1Ywx/zO/
+l0fNz+4zNa6fbZ+23yIUFUZIoYh1zCtCERAMQlG0IW3I+gVv2pUFqdpLbzeuzaQ32iszUrb3MGne
+XEiGH2aD7Y5i9coV/5JkfYBmPL1Kv2ZKr35RexWZ928MtzJrN+beFTvnV+1Rr5nH5cnWtFrJe+h3
+nE6P84tQVBjDDUWsY6lxfhGKgGCMeSgqJUeScYfPdVmw90UpXaokfRFkz95YrundeTdzU7bDbLCT
+/gvK3bzOdTDdr0vN7hjS80zfWC6+IV7rxnVtN5Yz3zuZ2t5Yzr9xnexUZM67F0xbEYoKYzihiHWs
+5zo2wFBUtfdbmr6Y/GYjjYs2lK1V7RBrqyzT0ecwIdUOilVlIRo+LWV7e4RYp+En8d5hfj8Uy5iH
+ouyVKenXli4synrq1v2G3ur/xnLb7fsPtcE2pY8f2Mg+SsDOP7onirHrHS3H5R5BEI2O6evq8+mj
+YVt5jzjYNTuhWn2hwyMOvCIUFcZwQhHrWM91jFDU53uH+f1QLCMZiqgTLEJRYRwkFFEnWJw+A4JB
+KKK6F6GoMAhFgRahCAgGoYjqXoSiwiAUBVqEIiAYhCKqexGKCoNQFGgRioBgEIqo7kUoKgxCUaBF
+KAKCQSiiuhehqDAIRYEWoQgIBqGI6l6EosIgFAVahCIgGIQiqnsRigqDUBRoEYqAYBCKqO5FKCoM
+QlGgRSgCghFcKDp1+pTc8dI7qEDq9h+5Xe67/z77F8Ioc6GoCOvYjz50Sl79Y8XYVtx+L+sYEIqg
+QtHb3va2wtfymTPyX/fcI7WXvlTWXv1q+fhjj8nc2bO504ZS73vf++xfCKMu7+87SqXriq43zz3/
++fJ/zbqTN80oFusYEIagQtHY+PEf12YxkTvuiP+r9WM/JvKmN4l85CMitZqdEEBEn1H2+OMid9/d
+Wmea9vlsADAgZsuCE7e83Nqw+3XXXSIf/jAbe8BxYUjXD/8gQsMRAAyY2bpgKFxr0alTIrffLvKu
+dxGGAN/cXCsEZevMGTsRAAyO2bpgKPzWop/+6biV6HOfsyMBRLSlqFIReetb44MHLT2Q0BZVABgw
+QtEw3XNPHIq+9KXWUbH+d3/fTgAgakF96CGRRx9tHUisrtqRADA4hKJh0qNd3cA7n/2syJ13irzm
+NSKNhh0IjLnHHhN5yUtEbt4UOXs2Xme0BQkABoxQNEx6BJztG/H1r4u87GUi990ncumSHQiMqYWF
+uIO1nkJTGoZe9KL43wAwYISiYcu7/P5//zc+Otadwcc/bgcCY0aD0G23iSwu2gGW9scDgGNAKArZ
+Rz8adyz97d8WefZZOxAYA//+7/EpMz04AIATQigK3T/+o8i994o8/LDIv/yLHQgU2Pe+J/KqV4n8
+7M9ymwoAJ4pQNAr0qHlyMu6EzWX7KDq9AlOXdQ4CAJwwQtGo2NsT+YM/MH8x8yd797u5bB/F9JnP
+xMs4/YYADAGhaNQsLYk8//lcto/i0ZYhbSHSy+4BYAgIRaPoq18VefBBLttHcezsxH2ItC+R/hsA
+hoBQNKqeeUbkda+LH3nwxBN2IDCifu/34vsPaf85ABgSQtEo+/73Rd773rgPhl62v71tRwAjRO9D
+pMvw2podAADDQSgqgr//+/iBsj/1U1yxg9GiN2jUm5TOz9sBADA8hKKi2NwUecUruGwfo0OfZaY3
+aNRH3fzgB3YgAAwPoahI9K7XegdgPRXxrndx2T7CpSFIw5B70CsABIBQVET6EE3tgM1l+wiVni7z
+H/QKAAEgFBXVl74k8qM/ymX7CI92qNbWzOyDXgFgyAhFRfYf/yHy6lfHrUZ/8Rd2IDBEesm9XnrP
+g14BBIhQVHTf/a7IH/5hfGT+xjdy2T6GR2/KyINeAQSMUDQuPv3p+PEgXLaPYdHHd/CgVwABIxSN
+E308yE/8BJft4+TpA161tZIHvQIIGKFo3PzXf4n8xm/EO6g/+iMu28fx0zCuQXx21g4AgDARisaR
+3iPm/e+PgxGX7eM4ad+hhx6K+xJ973t2IACEiVA0zv7hH+LHg+hl+1/+sh0IDIiGb73KjAe9AhgR
+hKJx5x4Popft//mf24HAAHz4wyK33caDXgGMDEIRRL7zHZE3vzk+ncZl+xgEvVO1BiINRgAwIghF
+aNEbPGow0sv2azU7EDggPVXGg14BjCBCEdK+8hWRBx4QecELRFZW7ECgT9qZWjtV86BXACOIUBSU
+hpRXJmRh0/44cFVZONfH/J95Jj7K11YjvRv23p4dAfQwN8eDXgGMLEJRUAIJRUpPe3zwg3G/kEce
+Efm3f7MjgA4+85k4SPOgVwAjilB0TBoXp2XCBJC4pqW85Q9v/eyC0MTaF+L/2tdMX3T3DrLj3bxW
+ymaItVWW6XMLUvbfyx9vpD7H2kI6FEWvt+NMtd7T88UvxpdU33OPyOc/bwcCGfroDr1BIw96BTDC
+CEXHIAoifjjZXDChY0Gq9sfqmgaU+Kf0tNmWovhnP6z4r01CjfvZtgS56eNAlHlfMz6ef7bVqEsr
+0n/+p8iv/VrcCvDud8cPmQUcvUGjPuSVB70CGHGEooHTcOG3BMU0kCThxoaZhYv63/ZWoySYaJjK
+tPyk5h/NJ/1erdDUHqjSwadLCMpz65bIE0/ED5V95StFnn7ajsDY09YhHvQKoAAIRYOWOSXllx9Q
+3GmtdGhJh6LUqa9U9ROK8kJPl/knrU09fO1rcYvAD/8wp9MQ9x/SFkQe9AqgAAhFg5YTVPIkgSQV
+RnJCS1tLkeeIoSgRnd6Lw1E6pHXxnvfEO8N3vtMOwNjRK8z0SjMe9AqgIAhFA9fHaSkXZjbjVqXW
+tJnQkumL1KZrKIrn1fn0WbueISzrC1+IO2FPTorU63YgxoLeg0jvRTTQB712CO0Dc8BTxgDGDqHo
+GMStQH6Y8TfG6bCSnja7U4h/TrUm+UGpaygy8jp4J58ju4PIC1F9uH5d5LWvFbn7bpG/+zs7EIWm
+t2vQ+1gN/EGvhCIAw0UoOiYugLhyG+J4uB+Y0sGn/bRavCFvzct7ba9QZCTzMzV9sZzeKXinzaLy
+w9dBfP/7Iu9/f3xPI73Z4+6uHYFCmp/v+aBXf7kb6VtSABgrhCIMzj/9k8jp0/FT9/Xp+ygeDULa
+l6zLg16jIOKHk7wWS/8gIJk221IU/+yHlVTod6EmcwCR3wprX2vGx/PPthrRigSAUIRB074mv/qr
+Ij/0QyKf+pQdiELQU2V6yqzrg141XKRbL5UGkiTc2DAzUrekADAWCEUYPN1h/smfiJw6JfKWt4js
+7NgRGFn6N9RO1Q891P1Br5lTUn75AcWd1kqHlnQoSp36SlU/oSgv9HSZf9LaBGCcEYpwfP75n0Ue
+fFDkZS+L72+E0XX2bHz5/Ve/agd0kBNU8iSBJBVGckJLW0uR54ihKOH1rUuHNADjhlCE4/Xf/y3y
++teLvOAFIn/913YgRsrSUtyPqK8HvfZxWsqFmVG/JQWAwiEU4WR8/OMiz3ueyG/9lsj//I8diOBp
+y5C2EB3gQa9xK5AfZvwwkg4r6WmzLTnxz6nWJD8odQ1FRl4H7+RzZANSXogCMG4IRTg5uoP9yZ+M
+q9dpGAyfPtxV+xAd4kGvLoC4cuEjHu4HpnTwaT+tFoeX1ry81/YKRUYyP1PHdksKAIVBKMLJ0lYi
+bS3SViN9wCzCpJ3ledArgDFDKMJwfPKTcT8j7W+01aNXLk6e3oeIB70CGDOEIgzP178eX5l2//3x
+lWoIgz7oVe9YzYNeAYwZQhGGS+9/o/cy0nsa6b2NOt4UECdCb9A48Ae9AsBoIBQhDHr3a70Ltt4N
+u9vNAXF8NARpGBr4g14BYDQQihAOfV6aPjdNn5+mz1HDydLTZT0e9AoARUYoQlj0CftvfWu8c9an
+sesT+HH8tEN1jwe9AkDREYoQptVVkbvvFnnta0WuX7cDcSz0knu99L7rg14BoPgIRQhXvS4yORn3
+cfnCF+xADJTelFFvztjrQa8AMAYIRQibdv5997vjUzv6X66IGiy9QWM/D3oFgDFAKMJo0M6/2mL0
+5JN2AAbiox/t80GvAFB8hCKMDn3iPgAAx4RQhKC98lWvlEd+4REqsHq9Pp4FAAqGUIRg3bp1SyYm
+JmTiYVOvo4Kp0oScvv+0/SsBQHEQihCsJBT9vqlzVDD1GKEIQDERihAsQlGgRSgCUFCEIgSLUBRo
+EYoAFBShCMEiFAVahCIABUUoQrAIRYEWoQhAQRGKECxCUaBFKAJQUIQiBItQFGgRigAUFKEIwSIU
+BVqEIgAFRShCsA4SiuZuNOMXNZdzxx+onpyX9e2qLOeNG2StzEq52ZTd+JMbDVmv5EwXWhGKABQU
+oQjBGk4ompXKns5o49hD0fxNF4eaUm9uyEZzVeZzpguuCEUACopQhGANJxTNnVAoOiOr2/o+u1Kt
+5Y0PuAhFAAqKUIRgFTsUufdpSuVS3viAi1AEoKAIRQjWIELRcjTYBJyVGVm8UZfmfjSVsSvN5ros
+nvfms7lhx/nS4ah0YUFWtxomyjhmPtsVWbxQas3HVvyZTOi5siiV7dapsm/v7th/p21stl47ebEs
+tR2/v5Gx35SN64sys5J+n7gmZfZaTRp73it0+muzMtk2rc5/WSqp/kz6+yjL7JPt07YVoQhAQRGK
+EKzBhaKG1G0oaW5r3x0TjqKfjP2aLLqQcXnVG7crjUw/n9KldWm4ULXfMOPM+J1W2KlcSgcj95l2
+o9fE/Ybqe025+kw19Rniz7Qhq5fj102ZcJbM1Y7b2G4FmF3zHc947zNxbsp8z2SsfU0jNf2UN/3U
+1Vrr++/Vo/nXo1YrY9+EQD8o5hWhCEBBEYoQrMGFIsPs7Mt+a86KO32lLTR+mOl0+qw1ffPmYjpk
+uBDjByxTyWeSupTbgkaH02crS1KLXtMesibOl82cVF1W11rDz1yLh8peNd3ydX5ZNqJAtiu1K3bY
+mhkWTbwr9fqslNy050qtz7uzLmeT4TlFKAJQUIQiBGuQoah5Yy41XMu9Jj0uPxSVrsZRRfarOVeI
+lWRpKx5dv3YmGZ58pq1Fb1pXHULR1WrcsmS+RyuwuMp7zYysR2fjNPi0n8I7UzeBaX9XGjfmo5/P
+Xm/oxCLb5Uxrk9bZZF5V22qVW4QiAAVFKEKwBhmK/P46Sdk+RP2EogV7+XxeuNIqudYa7/3dZ2pc
+n0lNG1eHUORVaW1aZi4uyPK1ValsbXj9hfzXuJafbMtWXrkr3jS8tQcorVZQnM0dHxWhCEBBEYoQ
+rMGFog7B4wChyIWr3R3bxydb23aCvYrM2de4z5QbyLqEotLFsmxE4zL2Xb8i7zWXKuYnw3vfzuXe
+08zB9VXKlusjlfk9popQBKCgCEUIVoihqKejhqLKutgTXCa4VGX92pLMX5iRqeiqsJzXHDIU9UQo
+AjCGCEUIVkihyJ0+63TaKa8OE4rc++xuLfbXp2jFdb4+yOmzDr+PfotQBKCgCEUIVkihqGSnla2l
+nLCSX4cJRa5FKvc1SSuS/5pW5+i8jtYTtaoZY/5nfi+Pmp/dZ2pcP9s+bb9FKAJQUIQiBGu4oagh
+6xe8aVcWpGovb9+4NpMORiszUrb3CWreXEiGH6WlSK8O8y/714fUxtOr9Gum9AoztVeRef/miyuz
+NjB5V8WdX7UtS2Yelydb02ol76HfcTo9zi9CEYCCIhQhWMMJRaWktSbuVL0uC/beQ6VLlaS/j+zZ
+mzc2vbtbZ258eJhQlPQRUu4Gka4T935dajZ8peeZvnljfNPJ1s0h227eaL53MrW9eaN/c0jZqchc
+7l2zbRGKABQUoQjBGk4oyl79lX5t6cKirKcej2Ho4zRuLLc9IuNQociUPuJjI/u4Djv/6L5Dxq7X
+IhWXe8xHNDqmr6vPp1ucbOU9RmTXBL1afaHDY0S8IhQBKChCEYJ1kFBEnWARigAUFKEIwSIUBVqE
+IgAFRShCsAhFgRahCEBBEYoQLEJRoEUoAlBQhCIEi1AUaBGKABQUoQjBIhQFWoQiAAVFKEKwCEWB
+FqEIQEERihAsQlGgRSgCUFCEIgSLUBRoEYoAFBShCMFyoejU6VNyx0vvoAKp2++9Xe67/z77VwKA
+4iAUIWhve9vbqADrfe97n/0LAUBxEIoAAAAMQhEAAIBBKAIAADAIRQAAAAahCAAAwCAUAQAAGIQi
+AAAAg1AEAABgEIoAAAAMQhEAAIBBKAIAADAIRQAAAAahCAAAwCAUAQAAGIQiAAAAg1AEAABgEIoA
+AAAMQhEAAICI/H8vcCrK/Zi2KQAAAABJRU5ErkJggg==
+
+------MultipartBoundary--yN03Q1icOD4YZ7VDaDy0O6iqDvRqfIH9xe4OsvRzPd------
