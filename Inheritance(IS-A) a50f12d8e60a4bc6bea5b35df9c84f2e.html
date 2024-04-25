@@ -1,0 +1,1434 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Inheritance(IS-A)</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="a50f12d8-e60a-4bc6-bea5-b35df9c84f2e" class="page sans"><header><h1 class="page-title"><strong>Inheritance(IS-A)</strong></h1><p class="page-description"></p></header><div class="page-body"><h1 id="262fe14d-bc73-45c9-83f5-60739cbde776" class="">What is <strong>Inheritance?</strong></h1><ul id="709cf6e7-9470-4604-a892-54a758349960" class="bulleted-list"><li style="list-style-type:disc"><strong>Inheritance</strong> is a mechanism in which one object acquires all the properties and behaviors of a parent object.</li></ul><ul id="29be25a0-9a5d-43a5-8d44-b3b92c108c9f" class="bulleted-list"><li style="list-style-type:disc">When you inherit from an existing class, you can reuse methods and fields of the parent class. Moreover, you can add new methods and fields in your current class also.</li></ul><ul id="14990e21-f38d-439b-91de-ed1ce8c3b840" class="bulleted-list"><li style="list-style-type:disc">Inheritance represents the <strong>IS-A relationship</strong> which is also known as a <em>parent-child</em> relationship.</li></ul><ul id="3f5964e1-4cd3-46a7-9417-fbe2ae46d9a8" class="bulleted-list"><li style="list-style-type:disc">When we say that class <strong>B</strong> is inherited from another class <strong>A</strong>, then class <strong>B</strong> is referred to as a <em>subclass</em> (or derived class) and class <strong>A</strong> is called <em>superclass </em>(or base class).</li></ul><h1 id="31c2b7e2-2734-4365-9484-1c7e9a608d97" class=""><strong>Why Do We Need Inheritance in Java?</strong></h1><ol type="1" id="3306fed8-b8ec-4492-8ffa-feea4b5fa5c9" class="numbered-list" start="1"><li><strong>Code Reusability: </strong>The code written in the Superclass is common to all subclasses. Child classes can directly use the parent class code.</li></ol><ol type="1" id="a1410fd8-4c99-48a6-801b-6755770e37e9" class="numbered-list" start="2"><li><strong>Method Overriding: To achieve Method Overriding </strong>through which we can achieve Run Time Polymorphism.</li></ol><ol type="1" id="461e7ed0-2a9d-4784-8f5b-89d6bffd60db" class="numbered-list" start="3"><li><strong>Abstraction: To achieve Abstraction. Abstraction</strong> is a process of hiding the implementation details and showing only functionality to the user.</li></ol><p id="0af7aa09-55d9-46e8-a702-bd1edb2e0b45" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="4079060a-99a3-42f5-b712-948643ac1be4"><div style="font-size:1.5em"><img class="icon" src="Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35df9c84f2e/coding_(1).png"/></div><div style="width:100%">.<h1 id="fa843feb-cf8e-4300-8ee4-bfed670d7e0f" class=""><strong>Important Terminologies Used in Java Inheritance:</strong></h1><ul id="556a9423-29f1-40f6-8b42-6cdda0dc3620" class="bulleted-list"><li style="list-style-type:disc"><strong>Class:</strong> A class is a group of objects which have common properties. It is a template or blueprint from which objects are created.</li></ul><ul id="82d53b25-754b-4bae-b618-3848c201cd7b" class="bulleted-list"><li style="list-style-type:disc"><strong>Super Class/Parent Class:</strong> Superclass is the class from where a subclass inherits the features. It is also called a base class or a parent class.</li></ul><ul id="2ebc5eb0-58c5-4505-988a-94113763b1da" class="bulleted-list"><li style="list-style-type:disc"><strong>Sub Class/Child Class:</strong> Subclass is a class which inherits the other class. It is also called a derived class, extended class, or child class. The subclass can add its own fields and methods in addition to the superclass fields and methods.</li></ul><ul id="29dd21c7-f41c-4fb4-a628-c3256adf1207" class="bulleted-list"><li style="list-style-type:disc"><strong>Reusability: </strong>Inheritance supports the concept of “reusability”, i.e. when we want to create a new class and there is already a class that includes some of the code that we want, we can derive our new class from the existing class. By doing this, we are reusing the fields and methods of the existing class.</li></ul></div></figure><p id="74fbac78-80b7-468a-88da-3f5ef06d8619" class=""><div class="indented"><h1 id="4b8c3935-ad3a-498f-84d9-bd55b45c7ddb" class="">Java Inheritance Types</h1><p id="f318b951-a3e4-4118-9e9c-dafe710157c9" class="">Below are the different types of inheritance which are supported by Java.</p><ol type="1" id="1b4f26e7-a592-4bf1-99d9-5653773d012b" class="numbered-list" start="1"><li>Single Inheritance</li></ol><ol type="1" id="5f75e977-d2e2-4e68-9943-6dcb26200ccf" class="numbered-list" start="2"><li>Multilevel Inheritance</li></ol><ol type="1" id="2e704a22-c92b-46c7-a393-4b82b614b860" class="numbered-list" start="3"><li>Hierarchical Inheritance</li></ol><ol type="1" id="903d42e6-1b2b-464c-a7d7-f75593becceb" class="numbered-list" start="4"><li>Multiple Inheritance</li></ol><ol type="1" id="11dda007-d3dc-4c79-87ce-95d1ab144232" class="numbered-list" start="5"><li>Hybrid Inheritance</li></ol><hr id="f6cc8bc3-7c13-48d6-8de6-5e7853dbe515"/><h3 id="a8f09257-e767-47ef-b1e1-552e5f88b57c" class=""><strong>1. Single Inheritance</strong></h3><ul id="1d4aa9d1-67af-4a4d-9a7d-49f879917d49" class="bulleted-list"><li style="list-style-type:disc">In single inheritance, subclasses inherit the features of one superclass.<ul id="d53b3f90-bc3b-4003-a617-01d7938234e6" class="toggle"><li><details open=""><summary>Example 1 code:</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="b578cb88-d35a-4976-9175-90f9b51c89aa" class="code"><code class="language-Java">// Java program to illustrate the
+// concept of single inheritance
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+
+// Parent class
+class One {
+	public void print_geek()
+	{
+		System.out.println(&quot;Geeks&quot;);
+	}
+}
+
+class Two extends One {
+	public void print_for() { System.out.println(&quot;for&quot;); }
+}
+
+// Driver class
+public class Main {
+	// Main function
+	public static void main(String[] args)
+	{
+		Two g = new Two();
+		g.print_geek();
+		g.print_for();
+		g.print_geek();
+	}
+}
+
+Output:
+Geeks
+for
+Geeks</code></pre></details></li></ul><ul id="c6223c0d-5b6f-429e-a50a-575a35dc15fc" class="toggle"><li><details open=""><summary>Example 2 code:</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ace69c67-7c20-4f2a-807c-a0d309a831e8" class="code"><code class="language-Java">class Animal{  
+void eat(){System.out.println(&quot;eating...&quot;);}  
+}  
+class Dog extends Animal{  
+void bark(){System.out.println(&quot;barking...&quot;);}  
+}  
+class TestInheritance{  
+public static void main(String args[]){  
+Dog d=new Dog();  
+d.bark();  
+d.eat();  
+}}  
+
+Output:
+barking...
+eating...</code></pre></details></li></ul><figure id="e0a38a62-887c-4ab5-be19-6a0ec9e8c240" class="image"><a href="Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35df9c84f2e/1-660x329.jpg"><img style="width:432px" src="Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35df9c84f2e/1-660x329.jpg"/></a></figure></li></ul><h3 id="c720b5a1-d4d2-4b27-be1f-743e586c27f3" class=""><strong>2. Multilevel Inheritance</strong></h3><ul id="7981e4df-6551-48bb-b99a-110d9d35994b" class="bulleted-list"><li style="list-style-type:disc">When there is a chain of inheritance, it is known as <em>multilevel inheritance</em>.</li></ul><ul id="938c0054-7143-49b1-9ee8-a6420a2d2aa9" class="bulleted-list"><li style="list-style-type:disc">In Multilevel Inheritance, a derived class will be inheriting a base class, and as well as the derived class also acts as the base class for other classes<ul id="136f5473-dc09-4b74-af46-3b61f17f4b3e" class="toggle"><li><details open=""><summary>Example 1 code:</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d6334cd1-e363-48c8-b064-1ba40bd09ddd" class="code"><code class="language-Java">// Java program to illustrate the
+// concept of Multilevel inheritance
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+
+class One {
+	public void print_geek()
+	{
+		System.out.println(&quot;Geeks&quot;);
+	}
+}
+
+class Two extends One {
+	public void print_for() { System.out.println(&quot;for&quot;); }
+}
+
+class Three extends Two {
+	public void print_geek()
+	{
+		System.out.println(&quot;Geeks&quot;);
+	}
+}
+
+// Drived class
+public class Main {
+	public static void main(String[] args)
+	{
+		Three g = new Three();
+		g.print_geek();
+		g.print_for();
+		g.print_geek();
+	}
+}
+
+Output:
+Geeks
+for
+Geeks
+</code></pre></details></li></ul><ul id="4092e83c-186c-4229-8f6a-be0c19aa00b0" class="toggle"><li><details open=""><summary>Example 2 code:</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ebc7d1af-8e9e-4844-808d-67db87f3543b" class="code"><code class="language-Java">class Animal{  
+void eat(){System.out.println(&quot;eating...&quot;);}  
+}  
+class Dog extends Animal{  
+void bark(){System.out.println(&quot;barking...&quot;);}  
+}  
+class BabyDog extends Dog{  
+void weep(){System.out.println(&quot;weeping...&quot;);}  
+}  
+class TestInheritance2{  
+public static void main(String args[]){  
+BabyDog d=new BabyDog();  
+d.weep();  
+d.bark();  
+d.eat();  
+}}  
+
+Output:
+weeping...
+barking...
+eating...</code></pre></details></li></ul></li></ul><figure id="519be305-609f-4a5f-9d4a-a7cd8c21ae37" class="image"><a href="Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35df9c84f2e/2-660x329.jpg"><img style="width:480px" src="Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35df9c84f2e/2-660x329.jpg"/></a></figure><h3 id="1492296a-0fe4-4610-a0b9-a2158e4d7a1b" class=""><strong><strong>3. Hierarchical Inheritance</strong></strong></h3><ul id="be55fe0e-b79f-41f9-8594-fd2e1fff5277" class="bulleted-list"><li style="list-style-type:disc">When two or more classes inherits a single class, it is known as <em>hierarchical inheritance</em>.<ul id="bf7d7a18-2f7d-4a96-a285-ec497541c099" class="toggle"><li><details open=""><summary>Example 1 code:</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="3e5cb727-8bb3-4e58-b6ab-c6c7740fcb0e" class="code"><code class="language-Java">// Java program to illustrate the
+// concept of Hierarchical inheritance
+
+class A {
+	public void print_A() { System.out.println(&quot;Class A&quot;); }
+}
+
+class B extends A {
+	public void print_B() { System.out.println(&quot;Class B&quot;); }
+}
+
+class C extends A {
+	public void print_C() { System.out.println(&quot;Class C&quot;); }
+}
+
+class D extends A {
+	public void print_D() { System.out.println(&quot;Class D&quot;); }
+}
+
+// Driver Class
+public class Test {
+	public static void main(String[] args)
+	{
+		B obj_B = new B();
+		obj_B.print_A();
+		obj_B.print_B();
+
+		C obj_C = new C();
+		obj_C.print_A();
+		obj_C.print_C();
+
+		D obj_D = new D();
+		obj_D.print_A();
+		obj_D.print_D();
+	}
+}
+
+Output:
+Class A
+Class B
+Class A
+Class C
+Class A
+Class D
+</code></pre></details></li></ul><ul id="5012c1aa-42d2-4c22-baa5-7b604633cb43" class="toggle"><li><details open=""><summary>Example 2 code:</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7088efb7-c3a7-402a-ac64-b7910d3479ee" class="code"><code class="language-Java">class Animal{  
+void eat(){System.out.println(&quot;eating...&quot;);}  
+}  
+class Dog extends Animal{  
+void bark(){System.out.println(&quot;barking...&quot;);}  
+}  
+class Cat extends Animal{  
+void meow(){System.out.println(&quot;meowing...&quot;);}  
+}  
+class TestInheritance3{  
+public static void main(String args[]){  
+Cat c=new Cat();  
+c.meow();  
+c.eat();  
+//c.bark();//C.T.Error  
+}} 
+
+Output:
+meowing...
+eating...</code></pre></details></li></ul><figure id="284b9960-a311-43c7-aba4-0d6cea96d0d3" class="image"><a href="Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35df9c84f2e/Hierarchical-Inheritance-in-Java.jpg"><img style="width:322px" src="Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35df9c84f2e/Hierarchical-Inheritance-in-Java.jpg"/></a></figure></li></ul><h3 id="ca674ccd-cddd-4f81-a6aa-f5379a84873a" class=""><strong><strong>4. Multiple Inheritance (Through Interfaces)</strong></strong></h3><ul id="6d01421f-7dc7-4c22-8f9d-e2ba98dc1daa" class="bulleted-list"><li style="list-style-type:disc">In Multiple inheritances, one class can have more than one superclass and inherit features from all parent classes.</li></ul><ul id="fef1c5d7-91a5-40de-b28e-c60e56178c76" class="bulleted-list"><li style="list-style-type:disc">Please note that Java does not support multiple inheritances with classes. In Java, we can achieve multiple inheritances only through Interfaces.<ul id="d0542c22-20f1-4e7e-a595-7c37d9828c87" class="toggle"><li><details open=""><summary>Example 1 code:</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="6727ee69-b82e-4f1b-92d1-65d080994bb3" class="code"><code class="language-Java">// Java program to illustrate the
+// concept of Multiple inheritance
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+
+interface One {
+	void print_geek();
+}
+
+interface Two {
+	void print_for();
+}
+
+interface Three extends One, Two {
+	void print_geek();
+}
+
+class Child implements Three {
+
+	@Override public void print_geek(){
+		System.out.println(&quot;Geeks&quot;);
+	}
+
+	@Override 
+	public void print_for() { 
+		System.out.println(&quot;for&quot;); 
+	}
+}
+
+// Drived class
+public class Main {
+	public static void main(String[] args)
+	{
+		Child c = new Child();
+		c.print_geek();
+		c.print_for();
+		c.print_geek();
+	}
+}
+
+
+Output:
+	Geeks
+	for
+	Geeks</code></pre></details></li></ul><ul id="2795f61a-fde5-4c28-93a2-116108b05cae" class="toggle"><li><details open=""><summary>Example 2 code:</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9b773698-277c-45c8-9856-cc84d7c0e03f" class="code"><code class="language-Java">interface One {
+    void print_geek();
+    void msg();
+}
+
+interface Two {
+    void print_for();
+    void msg();
+}
+
+
+class Child implements One, Two {
+
+    @Override
+    public void print_geek(){
+        System.out.println(&quot;Geeks&quot;);
+    }
+
+    @Override
+    public void print_for() {
+        System.out.println(&quot;for&quot;);
+    }
+
+    @Override
+    public void msg() {
+        System.out.println(&quot;Blaze&quot;);
+    }
+}
+
+// Drived class
+public class Main {
+	public static void main(String[] args)
+	{
+		Child c = new Child();
+		c.print_geek();
+		c.print_for();
+		c.print_geek();
+		c.msg();
+	}
+}
+
+Output:
+	Geeks
+	for
+	Geeks
+	Blaze</code></pre></details></li></ul><ul id="9340b012-8327-4512-abe6-839f54870053" class="toggle"><li><details open=""><summary>Example 3 code:</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="06356ca1-29e7-4c23-ac2c-8dd8a1de82ba" class="code"><code class="language-Java">interface AnimalEat {
+   void eat();
+}
+interface AnimalTravel {
+   void travel();
+}
+class Animal implements AnimalEat, AnimalTravel {
+   public void eat() {
+      System.out.println(&quot;Animal is eating&quot;);
+   }
+   public void travel() {
+      System.out.println(&quot;Animal is travelling&quot;);
+   }
+}
+public class Demo {
+   public static void main(String args[]) {
+      Animal a = new Animal();
+      a.eat();
+      a.travel();
+   }
+}
+
+Output:
+Animal is eating
+Animal is travelling</code></pre></details></li></ul><figure id="02687822-7a0a-4b90-9b6a-d59488ba10ce" class="image"><a href="Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35df9c84f2e/3-660x329.jpg"><img style="width:660px" src="Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35df9c84f2e/3-660x329.jpg"/></a></figure></li></ul><h3 id="6158e89c-e78e-4acd-b8e9-f408abe57a49" class=""><strong>5. Hybrid Inheritance</strong></h3><ul id="1817f465-5ea3-4add-bd7c-56cc3f99bdf9" class="bulleted-list"><li style="list-style-type:disc">It is a mix of two or more of the above types of inheritance. Since Java doesn’t support multiple inheritances with classes, hybrid inheritance involving multiple inheritance is also not possible with classes. In Java, we can achieve hybrid inheritance only through <a href="https://www.geeksforgeeks.org/interfaces-in-java/"><strong>Interfaces</strong></a> if we want to involve multiple inheritance to implement Hybrid inheritance.</li></ul><ul id="37e41228-7a58-4521-962d-8e5c596ab4fe" class="bulleted-list"><li style="list-style-type:disc">However, it is important to note that Hybrid inheritance does not necessarily require the use of Multiple Inheritance exclusively. It can be achieved through a combination of Multilevel Inheritance and Hierarchical Inheritance with classes, Hierarchical and Single Inheritance with classes.</li></ul><ul id="089d8c91-5675-4deb-8c1e-fec79a01f945" class="toggle"><li><details open=""><summary>In this example:</summary><ul id="9a4463bd-bf71-4154-b8f4-1c8a5ab83d66" class="bulleted-list"><li style="list-style-type:disc"><code><strong>ClassB</strong></code> inherits from <code><strong>ClassA</strong></code> and implements <code><strong>InterfaceA</strong></code>.</li></ul><ul id="ce9df85d-71eb-42ac-941e-3cd31fe13409" class="bulleted-list"><li style="list-style-type:disc"><code><strong>ClassC</strong></code> inherits from <code><strong>ClassA</strong></code> and implements <code><strong>InterfaceB</strong></code>.</li></ul><ul id="10a5f034-d3fb-4819-88e8-782f2a2de449" class="bulleted-list"><li style="list-style-type:disc"><code><strong>ClassD</strong></code> inherits from <code><strong>ClassC</strong></code> and implements both <code><strong>InterfaceA</strong></code> and <code><strong>InterfaceB</strong></code>.</li></ul><ul id="89e9ea0b-9ae0-4cb6-adad-5bf059dca7b0" class="bulleted-list"><li style="list-style-type:disc">So, <code><strong>ClassD</strong></code> exhibits hybrid inheritance as it inherits from classes (<code><strong>ClassC</strong></code> and indirectly from <code><strong>ClassA</strong></code>) and also implements interfaces (<code><strong>InterfaceA</strong></code> and <code><strong>InterfaceB</strong></code>).</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="155330f4-766b-4294-82a6-1a74f9ad455d" class="code"><code class="language-Java">interface InterfaceA {
+    void methodA();
+}
+
+interface InterfaceB {
+    void methodB();
+}
+
+class ClassA {
+    void methodC() {
+        System.out.println(&quot;Method C from ClassA&quot;);
+    }
+}
+
+class ClassB extends ClassA implements InterfaceA {
+    public void methodA() {
+        System.out.println(&quot;Method A from InterfaceA&quot;);
+    }
+}
+
+class ClassC extends ClassA implements InterfaceB {
+    public void methodB() {
+        System.out.println(&quot;Method B from InterfaceB&quot;);
+    }
+}
+
+class ClassD extends ClassC implements InterfaceA, InterfaceB {
+    public void methodA() {
+        System.out.println(&quot;Method A from InterfaceA&quot;);
+    }
+
+    public void methodB() {
+        System.out.println(&quot;Method B from InterfaceB&quot;);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ClassD objD = new ClassD();
+
+        objD.methodA(); // Output: Method A from InterfaceA
+        objD.methodB(); // Output: Method B from InterfaceB
+        objD.methodC(); // Output: Method C from ClassA
+    }
+}
+</code></pre></details></li></ul><figure id="af0db91a-5745-4686-9754-7a152588d9c9" class="image"><a href="Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35df9c84f2e/4-660x330.jpg"><img style="width:660px" src="Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35df9c84f2e/4-660x330.jpg"/></a></figure><h2 id="0760e730-755f-42ff-ac15-8129b14c1b41" class="">Why multiple inheritance is not supported in java?</h2><ul id="bdd78538-3bf1-4321-b55b-61ffb68f7fce" class="bulleted-list"><li style="list-style-type:disc">To reduce the complexity and simplify the language, multiple inheritances is not supported in java.</li></ul><ul id="59582f80-cedd-48d8-9754-9ecc4aab2078" class="bulleted-list"><li style="list-style-type:disc">Consider a scenario where <strong>A</strong>, <strong>B</strong>, and <strong>C</strong> are three classes. The <strong>C</strong> class inherits the <strong>A</strong> and <strong>B</strong> classes. If <strong>A</strong> and <strong>B</strong> classes have the same method and you call it from child class object, there will be ambiguity to call a method of <strong>A</strong> or <strong>B</strong> class.</li></ul><ul id="216c73ab-2955-427b-a6d8-258c2f40f0ff" class="bulleted-list"><li style="list-style-type:disc">Since compile-time errors are better than runtime errors, java renders compile-time error if you inherit 2 classes. So whether you have the same method or different, there will be a compile-time error now.</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f3c2ee54-79aa-4f71-8f97-eb92487d9d10" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">class A{
+    void msg(){System.out.println(&quot;Hello&quot;);}
+}
+class B{
+    void msg(){System.out.println(&quot;Welcome&quot;);}
+}
+class C extends A,B{//suppose if it were
+
+     Public Static void main(String args[]){
+          C obj=new C();
+          obj.msg();//Now which msg() method would be invoked?
+     }
+}
+
+ Compile Time Error
+</code></pre><h2 id="6ea03736-c393-43f8-9fbc-23bff29d8b22" class="">Java IS-A type of Relationship</h2><ul id="b454b67f-4d3e-42f2-a6a8-35cd25b7f906" class="bulleted-list"><li style="list-style-type:disc">IS-A is a way of saying: This object is a type of that object. Let us see how the extends keyword is used to achieve inheritance.</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="46f55f90-5721-4e05-9005-34e89b135de0" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">public class SolarSystem {
+}
+public class Earth extends SolarSystem {
+}
+public class Mars extends SolarSystem {
+}
+public class Moon extends Earth {
+}
+
+</code></pre><p id="3c5c0a1f-6cf1-4d51-968c-b382eedf65e4" class="">Now, based on the above example, in Object-Oriented terms, the following are true:-</p><ul id="d7947575-4d50-4c99-b4f9-c69d82b38128" class="bulleted-list"><li style="list-style-type:disc">SolarSystem is the superclass of Earth class.</li></ul><ul id="8b88f8bd-584a-4171-a8de-c61e8623c97f" class="bulleted-list"><li style="list-style-type:disc">SolarSystem is the superclass of Mars class.</li></ul><ul id="3001bf24-ddd8-49cf-9dc5-3ead38389400" class="bulleted-list"><li style="list-style-type:disc">Earth and Mars are subclasses of SolarSystem class.</li></ul><ul id="846b1e9b-cfc3-41d5-a734-66575dd6da99" class="bulleted-list"><li style="list-style-type:disc">Moon is the subclass of both Earth and SolarSystem classes.</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1c4d6347-5c4d-4f3b-98ed-b9b47d234cf1" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">class SolarSystem {
+}
+class Earth extends SolarSystem {
+}
+class Mars extends SolarSystem {
+}
+public class Moon extends Earth {
+	public static void main(String args[])
+	{
+		SolarSystem s = new SolarSystem();
+		Earth e = new Earth();
+		Mars m = new Mars();
+
+		System.out.println(s instanceof SolarSystem);
+		System.out.println(e instanceof Earth);
+		System.out.println(m instanceof SolarSystem);
+	}
+}
+
+Output:
+true
+true
+true
+</code></pre><h2 id="5cef4b14-de22-4cb8-848a-e7b9210666dc" class="">What Can Be Done in a Subclass?</h2><p id="45c0f2da-6b09-4340-b2f2-26d51ddeea6e" class="">In sub-classes we can inherit members as is, replace them, hide them, or supplement them with new members:</p><ul id="6a8243d2-3824-4f3e-aa0e-80bb0da648e9" class="bulleted-list"><li style="list-style-type:disc">The inherited fields can be used directly, just like any other fields.</li></ul><ul id="7641b199-27aa-4ec4-b7b2-ce02520b2080" class="bulleted-list"><li style="list-style-type:disc">We can declare new fields in the subclass that are not in the superclass.</li></ul><ul id="7005216b-24e8-4eb5-840f-0cfb9760ca91" class="bulleted-list"><li style="list-style-type:disc">The inherited methods can be used directly as they are.</li></ul><ul id="bc96290b-2e77-4c82-863e-d507ec23c169" class="bulleted-list"><li style="list-style-type:disc">We can write a new <em>instance</em> method in the subclass that has the same signature as the one in the superclass, thus <a href="https://www.geeksforgeeks.org/overriding-in-java/"><strong>overriding</strong></a> it (as in the example above, <em>toString()</em> method is overridden).</li></ul><ul id="3058594f-373b-4102-9310-2d6e591d4bd4" class="bulleted-list"><li style="list-style-type:disc">We can write a new <em>static</em> method in the subclass that has the same signature as the one in the superclass, thus <a href="https://www.geeksforgeeks.org/g-fact-63/"><strong>hiding</strong></a> it.</li></ul><ul id="2d86e1e0-e7ba-4114-ad61-3a02898af04b" class="bulleted-list"><li style="list-style-type:disc">We can declare new methods in the subclass that are not in the superclass.</li></ul><ul id="8e789521-86cf-4f15-8696-5ec3e3631676" class="bulleted-list"><li style="list-style-type:disc">We can write a subclass constructor that invokes the constructor of the superclass, either implicitly or by using the keyword <a href="https://www.geeksforgeeks.org/super-keyword/"><strong>super</strong></a>.</li></ul><h2 id="ae58ecce-1ce9-4f69-854b-9b7891d6cc3c" class="">Advantages Of Inheritance in Java:</h2><ol type="1" id="044eec94-b792-471a-aa8d-2b35dde8d96b" class="numbered-list" start="1"><li>Code Reusability: Inheritance allows for code reuse and reduces the amount of code that needs to be written. The subclass can reuse the properties and methods of the superclass, reducing duplication of code.</li></ol><ol type="1" id="555b8373-fe1f-49da-aa73-6a14111328ef" class="numbered-list" start="2"><li>Abstraction: Inheritance allows for the creation of abstract classes that define a common interface for a group of related classes. This promotes abstraction and encapsulation, making the code easier to maintain and extend.</li></ol><ol type="1" id="15afb7de-7401-479c-9d96-0da9cc6dc121" class="numbered-list" start="3"><li>Class Hierarchy: Inheritance allows for the creation of a class hierarchy, which can be used to model real-world objects and their relationships.</li></ol><ol type="1" id="fb05e324-37b8-4777-92c4-1f8304c20790" class="numbered-list" start="4"><li>Polymorphism: Inheritance allows for polymorphism, which is the ability of an object to take on multiple forms. Subclasses can override the methods of the superclass, which allows them to change their behavior in different ways.</li></ol><h2 id="079f287c-bc62-457b-87b9-c3675ce61090" class="">Disadvantages of Inheritance in Java:</h2><ol type="1" id="d350d3d2-b39f-47d8-ada9-5d9d2059f355" class="numbered-list" start="1"><li>Complexity: Inheritance can make the code more complex and harder to understand. This is especially true if the inheritance hierarchy is deep or if multiple inheritances is used.</li></ol><ol type="1" id="5e406b1e-7b49-4720-80bf-b7e843900e18" class="numbered-list" start="2"><li>Tight Coupling: Inheritance creates a tight coupling between the superclass and subclass, making it difficult to make changes to the superclass without affecting the subclass.</li></ol><h2 id="943f0ef4-8bec-4f5f-8da3-e303a4300ee8" class="">Conclusion</h2><p id="90e11d9a-acd6-4533-ac87-39688cfabf71" class="">Let us check some important points from the article are mentioned below:</p><ul id="7231453b-f32d-449b-aefb-3c2ff08ca208" class="bulleted-list"><li style="list-style-type:disc"><strong>Default superclass</strong>: Except <a href="https://www.geeksforgeeks.org/object-class-in-java/"><strong>Object</strong></a> class, which has no superclass, every class has one and only one direct superclass (single inheritance). In the absence of any other explicit superclass, every class is implicitly a subclass of the Object class.</li></ul><ul id="b0840d4a-9742-4518-8a64-b1b205b21950" class="bulleted-list"><li style="list-style-type:disc"><strong>Superclass can only be one:</strong> A superclass can have any number of subclasses. But a subclass can have only <strong>one</strong> superclass. This is because Java does not support multiple inheritances with classes. Although with interfaces, multiple inheritances are supported by Java.</li></ul><ul id="5905daf2-75a7-430d-8063-e18db6e981fd" class="bulleted-list"><li style="list-style-type:disc"><strong>Inheriting Constructors:</strong> A subclass inherits all the members (fields, methods, and nested classes) from its superclass. Constructors are not members, so they are not inherited by subclasses, but the constructor of the superclass can be invoked from the subclass.</li></ul><ul id="762572fd-6db8-4a3f-bc21-166d630dd921" class="bulleted-list"><li style="list-style-type:disc"><strong>Private member inheritance:</strong> A subclass does not inherit the private members of its parent class. However, if the superclass has public or protected methods(like getters and setters) for accessing its private fields, these can also be used by the subclass.</li></ul><h2 id="db52bedc-d11e-4c6f-8d48-67f2255d2b45" class=""><strong>Inheritance and Constructors in Java</strong></h2><ul id="91bfd61c-ecb0-4746-87b2-dc9181867dde" class="bulleted-list"><li style="list-style-type:disc">Constructors in Java are used to initialize the values of the attributes of the object.</li></ul><ul id="8de3059a-a368-4938-8c0d-4c497565eed1" class="bulleted-list"><li style="list-style-type:disc">We already have a default constructor that is called automatically if no constructor is found in the code. But if we make any constructor say parameterized constructor in order to initialize some attributes then it must write down the default constructor because it now will be no more automatically called.</li></ul><ul id="1ed713f3-e1bf-4b22-b734-57d3b7043c9c" class="bulleted-list"><li style="list-style-type:disc"><code><em><strong>Note:</strong></em></code><em> In Java, constructor of the base class with no argument gets automatically called in the derived class constructor.</em></li></ul><ul id="bd0dc101-b843-4696-83ce-2f78b10434c1" class="bulleted-list"><li style="list-style-type:disc">Example 1 code:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8002d597-9e68-4998-8821-ca63eecb8996" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">// Java Program to Illustrate
+// Invocation of Constructor
+// Calling Without Usage of
+// super Keyword
+
+// Class 1
+// Super class
+class Base {
+
+	// Constructor of super class
+	Base()
+	{
+		// Print statement
+		System.out.println(
+			&quot;Base Class Constructor Called &quot;);
+	}
+}
+
+// Class 2
+// Sub class
+class Derived extends Base {
+
+	// Constructor of sub class
+	Derived()
+	{
+
+		// Print statement
+		System.out.println(
+			&quot;Derived Class Constructor Called &quot;);
+	}
+}
+
+// Class 3
+// Main class
+class GFG {
+
+	// Main driver method
+	public static void main(String[] args)
+	{
+
+		// Creating an object of sub class
+		// inside main() method
+		Derived d = new Derived();
+
+		// Note: Here first super class constructor will be
+		// called there after derived(sub class) constructor
+		// will be called
+	}
+}
+
+output:
+Base Class Constructor Called
+Derived Class Constructor Called
+</code></pre></li></ul><ul id="65938f0f-9ab5-4664-8bdb-4c4d5286a02b" class="bulleted-list"><li style="list-style-type:disc">Example 2 code:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d3daafa8-491b-4ca0-9b1b-3390d0323355" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">// Java Program to Illustrate Invocation
+// of Constructor Calling With Usage
+// of super Keyword
+
+// Class 1
+// Super class
+class Base {
+	int x;
+
+	// Constructor of super class
+	Base(int _x) { x = _x; }
+}
+
+// Class 2
+// Sub class
+class Derived extends Base {
+
+	int y;
+
+	// Constructor of sub class
+	Derived(int _x, int _y)
+	{
+
+		// super keyword refers to super class
+		super(_x);
+		y = _y;
+	}
+
+	// Method of sub class
+	void Display()
+	{
+		// Print statement
+		System.out.println(&quot;x = &quot; + x + &quot;, y = &quot; + y);
+	}
+}
+
+// Class 3
+// Main class
+public class GFG {
+
+	// Main driver method
+	public static void main(String[] args)
+	{
+
+		// Creating object of sub class
+		// inside main() method
+		Derived d = new Derived(10, 20);
+
+		// Invoking method inside main() method
+		d.Display();
+	}
+}
+
+output:
+x = 10, y = 20
+</code></pre></li></ul><h2 id="8a04bcb8-5f03-4070-9a4b-f15df4eeb8b1" class="">Java and Multiple Inheritance</h2><ul id="bf27018e-0ecc-42a8-82af-86d98f0d2292" class="bulleted-list"><li style="list-style-type:disc">Multiple Inheritance is a feature of an object-oriented concept, where a class can inherit properties of more than one parent class. The problem occurs when there exist methods with the same signature in both the superclasses and subclass. On calling the method, the compiler cannot determine which class method to be called and even on calling which class method gets the priority.</li></ul><ul id="71c26530-aade-438e-8973-cf489c27105b" class="bulleted-list"><li style="list-style-type:disc"><code><strong>Note:</strong></code> Java doesn’t support Multiple Inheritance</li></ul><ul id="653c72d5-435f-43b3-935b-c9bf829fc681" class="bulleted-list"><li style="list-style-type:disc">Example 1 code:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="838ceb22-6cb4-4aa9-a4f9-05218ea9a7c7" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">// Java Program to Illustrate Unsupportance of
+// Multiple Inheritance
+
+// Importing input output classes
+import java.io.*;
+
+// Class 1
+// First Parent class
+class Parent1 {
+
+// Method inside first parent class
+void fun() {
+
+	// Print statement if this method is called
+	System.out.println(&quot;Parent1&quot;);
+}
+}
+
+// Class 2
+// Second Parent Class
+class Parent2 {
+
+// Method inside first parent class
+void fun() {
+
+	// Print statement if this method is called
+	System.out.println(&quot;Parent2&quot;);
+}
+}
+
+// Class 3
+// Trying to be child of both the classes
+class Test extends Parent1, Parent2 {
+
+// Main driver method
+public static void main(String args[]) {
+
+	// Creating object of class in main() method
+	Test t = new Test();
+
+	// Trying to call above functions of class where
+	// Error is thrown as this class is inheriting
+	// multiple classes
+	t.fun();
+}
+}
+
+Output: Compilation error is thrown
+</code></pre></li></ul><ul id="0beb00a7-95e9-4697-af83-522871602449" class="bulleted-list"><li style="list-style-type:disc">Example 2 code:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1f6fc9c7-c64c-4f82-a461-f11a1c7f9bff" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">				 GrandParent
+           /     \\
+          /       \\
+      Parent1      Parent2
+          \\       /
+           \\     /
+             Test
+</code></pre><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="66987280-bee8-4ad3-ae8b-4726fd46f267" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">// Java Program to Illustrate Unsupportance of
+// Multiple Inheritance
+// Diamond Problem Similar Scenario
+
+// Importing input output classes
+import java.io.*;
+
+// Class 1
+// A Grand parent class in diamond
+class GrandParent {
+
+void fun() {
+
+	// Print statement to be executed when this method is called
+	System.out.println(&quot;Grandparent&quot;);
+}
+}
+
+// Class 2
+// First Parent class
+class Parent1 extends GrandParent {
+void fun() {
+
+	// Print statement to be executed when this method is called
+	System.out.println(&quot;Parent1&quot;);
+}
+}
+
+// Class 3
+// Second Parent Class
+class Parent2 extends GrandParent {
+void fun() {
+
+	// Print statement to be executed when this method is called
+	System.out.println(&quot;Parent2&quot;);
+}
+}
+
+// Class 4
+// Inheriting from multiple classes
+class Test extends Parent1, Parent2 {
+
+// Main driver method
+public static void main(String args[]) {
+
+	// Creating object of this class i main() method
+	Test t = new Test();
+
+	// Now calling fun() method from its parent classes
+	// which will throw compilation error
+	t.fun();
+}
+}
+
+</code></pre></li></ul><h3 id="e1d1ef54-78ea-499c-91bd-cb9c0a6a87e0" class=""><strong>How are the above problems handled for Default Methods and Interfaces?</strong></h3><ul id="3cabc0ff-9372-4545-bc7a-1e3d63ea4497" class="bulleted-list"><li style="list-style-type:disc">Java 8 supports default methods where interfaces can provide a default implementation of methods. And a class can implement two or more interfaces. In case both the implemented interfaces contain default methods with the same method signature, the implementing class should explicitly specify which default method is to be used in some method excluding the main() of implementing class using super keyword, or it should override the default method in the implementing class, or it should specify which default method is to be used in the default overridden method of the implementing class.</li></ul><ul id="c2ae9ac5-abfa-4606-a88e-e6c7c4431a41" class="bulleted-list"><li style="list-style-type:disc">Example 3 code:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="37223c2d-e17a-4198-a1e9-1a4ccc50691f" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">// Java program to demonstrate Multiple Inheritance
+// through default methods
+
+// Interface 1
+interface PI1 {
+
+	// Default method
+	default void show()
+	{
+
+		// Print statement if method is called
+		// from interface 1
+		System.out.println(&quot;Default PI1&quot;);
+	}
+}
+
+// Interface 2
+interface PI2 {
+
+	// Default method
+	default void show()
+	{
+
+		// Print statement if method is called
+		// from interface 2
+		System.out.println(&quot;Default PI2&quot;);
+	}
+}
+
+// Main class
+// Implementation class code
+class TestClass implements PI1, PI2 {
+
+	// Overriding default show method
+	@Override
+	public void show()
+	{
+
+		// Using super keyword to call the show
+		// method of PI1 interface
+		PI1.super.show();//Should not be used directly in the main method;
+
+		// Using super keyword to call the show
+		// method of PI2 interface
+		PI2.super.show();//Should not be used directly in the main method;
+	}
+
+	//Method for only executing the show() of PI1
+	public void showOfPI1() {
+		PI1.super.show();//Should not be used directly in the main method;
+	}
+
+	//Method for only executing the show() of PI2
+	public void showOfPI2() {
+		PI2.super.show(); //Should not be used directly in the main method;
+	}
+
+	// Mai driver method
+	public static void main(String args[])
+	{
+
+		// Creating object of this class in main() method
+		TestClass d = new TestClass();
+		d.show();
+		System.out.println(&quot;Now Executing showOfPI1() showOfPI2()&quot;);
+		d.showOfPI1();
+		d.showOfPI2();
+	}
+}
+
+output:
+Default PI1
+Default PI2
+Now Executing showOfPI1() showOfPI2()
+Default PI1
+Default PI2
+
+</code></pre></li></ul><ul id="6962acb5-5cd5-4ff7-91c7-59a343ddf20a" class="bulleted-list"><li style="list-style-type:disc">Example 4 code:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5cacd3ff-5314-4561-9e2e-1e676a2b6b85" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">// Java program to demonstrate How Diamond Problem
+// Is Handled in case of Default Methods
+
+// Interface 1
+interface GPI {
+
+	// Default method
+	default void show()
+	{
+
+		// Print statement
+		System.out.println(&quot;Default GPI&quot;);
+	}
+}
+
+// Interface 2
+// Extending the above interface
+interface PI1 extends GPI {
+}
+
+// Interface 3
+// Extending the above interface
+interface PI2 extends GPI {
+}
+
+// Main class
+// Implementation class code
+class TestClass implements PI1, PI2 {
+
+	// Main driver method
+	public static void main(String args[])
+	{
+
+		// Creating object of this class
+		// in main() method
+		TestClass d = new TestClass();
+
+		// Now calling the function defined in interface 1
+		// from whom Interface 2and 3 are deriving
+		d.show();
+	}
+}
+
+Output:
+Default GPI
+</code></pre></li></ul><h2 id="985f2ca0-b495-4647-b261-cdd682bbdcc5" class=""><strong>Interfaces and Inheritance in Java</strong></h2><ul id="147a5315-2914-4e10-a5e1-07a322d4f1a9" class="bulleted-list"><li style="list-style-type:disc">A class can extend another class and can implement one and more than one <strong>Java interface</strong>. Also, this topic has a major influence on the concept of <strong>Java and Multiple Inheritance</strong>.</li></ul><ul id="fe5b8881-be87-4472-9186-f81a4a6a0cfe" class="bulleted-list"><li style="list-style-type:disc"><code>Note:</code> ***<em>This Hierarchy will be followed in the same way, we cannot reverse the hierarchy while inheritance in Java. This means that we cannot implement a class from the interface because </em><em><strong>Interface-to-Class inheritance is not allowed,</strong></em><em> and it goes against the fundamental principles of class-based inheritance. This will also breach the relationship known as the Is-A relationship, where a subclass is a more specialized version of its superclass.</em></li></ul><figure id="a61b6cec-50a2-464b-9ba2-b580731429ca" class="image"><a href="Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35df9c84f2e/extends.png"><img src="Inheritance(IS-A)%20a50f12d8e60a4bc6bea5b35df9c84f2e/extends.png"/></a></figure><ul id="1e9c3646-0cca-4821-b3d9-d7b8593d8eef" class="bulleted-list"><li style="list-style-type:disc">Example 1 code:<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="07c21a88-d8de-49f5-9ad8-1db18e569fcc" class="code"><code class="language-Java" style="white-space:pre-wrap;word-break:break-all">// Java program to demonstrate that a class can
+// implement multiple interfaces
+import java.io.*;
+
+interface intfA {
+	void m1();
+}
+
+interface intfB {
+	void m2();
+}
+
+// class implements both interfaces
+// and provides implementation to the method.
+class sample implements intfA, intfB {
+	@Override public void m1()
+	{
+		System.out.println(&quot;Welcome: inside the method m1&quot;);
+	}
+
+	@Override public void m2()
+	{
+		System.out.println(&quot;Welcome: inside the method m2&quot;);
+	}
+}
+
+class GFG {
+	public static void main(String[] args)
+	{
+		sample ob1 = new sample();
+
+		// calling the method implemented
+		// within the class.
+		ob1.m1();
+		ob1.m2();
+	}
+}
+
+Output:
+Welcome: inside the method m1
+Welcome: inside the method m2
+</code></pre></li></ul></div></p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
